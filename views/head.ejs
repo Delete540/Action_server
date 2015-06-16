@@ -1,0 +1,58 @@
+<script type="text/javascript" src="/javascripts/lib/bower_components/SVG-Morpheus-master/compile/minified/svg-morpheus.js"></script>
+<div md-theme="defaultTheme" ng-controller="IndexTopMenuAppCtrl" layout="column">
+
+<md-toolbar class="action-top-menu action-t-menu-default">
+  <div class="md-toolbar-tools" >
+      <md-button class="md-icon-button action-menu-frame action-top-menu-button"  hide-gt-sm aria-label="Settings" >
+
+        <div class="md-icon action-top-menu-index">
+          <svg id="icon" viewBox="0 0 24 24" style="background-color:#ffffff00" version="1.1" width="28px" height="28px"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+          >
+
+          <g id="arrow_back" style="display:none">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </g>
+          <g id="menu" style="display:none">
+            <path d="M3 18h18v-2H3v2z"/><path d="M3 13h18v-2H3v2z"/><path d="M3 6v2h18V6H3z"/>
+          </g>
+          </svg>
+        </div>
+
+        <!--<ng-md-icon id="icon1" icon="menu" style="fill: white" size="28"></ng-md-icon>-->
+      </md-button>
+
+      <h2>
+        <span class='action-title-m' hide-gt-sm>Us</span>
+        <span class='action-title' hide-sm>Action ComeToUs</span>
+      </h2>
+
+      <ul class="action-top-center-menu" flex="55" offset="5" hide-sm center center >
+        <li>
+          <a href="/web" class="active">全部</a>
+        </li>
+        <% if(user){%>
+        <li>
+          <a href="/web/initiate">发起</a>
+        </li>
+
+        <li>
+          <a href="/web/find">发现</a>
+        </li>
+        <% }%>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+
+      </ul>
+
+      <span flex></span>
+    </div>
+
+</md-toolbar>
+
+
+</div>

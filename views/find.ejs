@@ -1,0 +1,96 @@
+<% include layout.ejs %>
+<% include backnav.ejs %>
+<% include rightbtns.ejs %>
+<div class="action-main ">
+    <md-card class="action-search" ng-controller="ActionSearchControl">
+      <form ng-submit="seachAction()"  class="action-search-form">
+        <div layout layout-sm="column">
+          <md-input-container md-no-float class="action-input-search" style="width:100%">
+
+            <input ng-model="key" class="action-input-text" placeholder="search">
+          </md-input-container>
+          <md-button class="md-icon-button action-search-close" aria-label="Close" href="#" type="submit" hide-gt-sm>
+            <div class="md-icon"><ng-md-icon  icon='close' style="fill: rgb(63,81,181)" size="28"></ng-md-icon></div>
+            <md-tooltip >
+              Close
+            </md-tooltip>
+          </md-button>
+        </div>
+
+      </form>
+      <md-card-content>
+        <div class="action-search-result">
+          <md-list>
+
+            <md-list-item class="md-2-line user-info"  ng-repeat="item in searchResult">
+              <ul><a href="/web/action/{{item._id}}">
+                <li class="left"><div class="left md-icon"><ng-md-icon  icon='flag' style="fill:#ddd" size="28"></ng-md-icon></div></li>
+                <li class="right">
+                  <p>活动名称:&nbsp{{item.name}}</p>
+                  <p>活动地点:&nbsp{{item.addr_name}}</p>
+                  <p>发起者:&nbsp{{item.creator}}</p>
+                  <p>活动开始时间:&nbsp{{item.start_date}}</p>
+                </li></a>
+              </ul>
+              <md-divider ></md-divider>
+            </md-list-item>
+
+          </md-list>
+        </div>
+      </md-card-content>
+    </md-card>
+    <div class="action-info-card action-main-actions" ng-controller="ActionsInfoControl" >
+
+
+      <md-card   id="{{item._id}}" ng-repeat="item in action.actions" >
+        <md-content class="action-info-card-content" >
+          <md-list>
+            <md-list-item class="md-2-line user-info">
+                <img ng-src="/images/60.jpeg" class="md-avatar" alt="{{item.creator}}"/>
+
+                <div class="md-list-item-text">
+
+                  <a href="/web/action/{{item._id}}"><h3>{{item.name}}</h3></a>
+                  <p>发起者：{{item.creator}}</p>
+                </div>
+
+              </md-list-item>
+
+          </md-list>
+        </md-content>
+        <a class="action-info-card-top-img-a" href="/web/action/{{item._id}}">
+          <img ng-src="{{item.picture}}" class="md-card-img" />
+        </a>
+        <md-card-content>
+          <md-list>
+            <md-list-item class="md-3-line">
+              <div class="md-list-item-text">
+                <p>{{item.desc}}</p>
+
+              </div>
+            </md-list-item>
+
+            <md-divider ></md-divider>
+            <md-list-item >
+              <div class="action-info-card-bottom-btns">
+                <md-button class="md-fab md-mini" aria-label="" >
+                  <div class="md-icon"><ng-md-icon  icon='share' style="fill: white" size="28"></ng-md-icon></div>
+                </md-button>
+                <%if(user){%>
+                <md-button class="md-fab md-mini" aria-label="" style="background-color:#2196f3"  id="action-fork" ng-click="forkGet(item._id)">
+                  <div class="md-icon"><ng-md-icon  icon='add' style="fill: white" size="28"></ng-md-icon></div>
+                </md-button>
+                <%}%>
+                <md-button class="md-fab md-mini" aria-label=""  style="background-color:#259b24" ng-click="starUp(item._id)">
+                  <div class="md-icon"><ng-md-icon  icon='thumb_up' style="fill: white" size="28"></ng-md-icon></div>
+                </md-button>
+              </div>
+
+            </md-list-item>
+          <md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+
+</div>
+<% include foot.ejs%>

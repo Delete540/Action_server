@@ -10,6 +10,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var config = require('./config');
 var busboy = require('connect-busboy');
+
+var web=require('./routes/web');
+
 var app = express();
 
 var modole = require('./module');
@@ -19,10 +22,12 @@ var proxy=require('./proxy');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
+
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/img/icon.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -48,6 +53,7 @@ app.use('/action',require('./routes/action'));
 app.use('/search',require('./routes/search'));
 app.use('/type',require('./routes/type'));
 app.use('/notification',require('./routes/notif'));
+app.use('/web',web);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

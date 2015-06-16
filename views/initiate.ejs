@@ -1,0 +1,193 @@
+<% include layout.ejs %>
+<% include backnav.ejs %>
+<% include rightbtns.ejs %>
+<div class="action-main " ng-click="close()">
+  <div class="action-main-initiate">
+    <md-card>
+      <md-card-content  layout-padding class="autoScroll action-main-initiate-card-cont" ng-controller="ActionPostControl">
+        <form ng-submit="processForm()">
+
+          <div class="top">
+            <div class="action-main-initiate-subject">
+              <div class="title">
+                <div class="left md-icon"><ng-md-icon  icon='subject' style="fill:rgba(0,0,0,0.54)" size="28"></ng-md-icon></div>
+                <span>活动主题</span>
+              </div>
+              <md-input-container class="action-main-initiate-subject">
+                <label>新活动...</label>
+                  <input required name="name" ng-model="actionData.name">
+
+              </md-input-container>
+            </div>
+            <div class="action-main-initiate-type">
+              <div class="title">
+                <div class="left md-icon"><ng-md-icon  icon='grain' style="fill:rgba(0,0,0,0.54)" size="28"></ng-md-icon></div>
+                <span>活动类型</span>
+              </div>
+              <div class="bottom">
+                <div class="child">
+                  <!--<md-checkbox ng-model="actionData.type_id" value="1" aria-label="Checkbox 1" aria-label="饭局">
+                    饭局
+                  </md-checkbox>-->
+                  <label>
+                    <input ng-model="actionData.type_id" value="1" type="radio"><span>饭局</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="2" type="radio"><span>KTV</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="3" type="radio"><span>电影</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="4" type="radio"><span>桌游</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="5" type="radio"><span>网吧</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="6" type="radio"><span>露营</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="7" type="radio"><span>公益</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="8" type="radio"><span>探险</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="9" type="radio"><span>旅行</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="10" type="radio"><span>咖啡</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="11" type="radio"><span>自习</span>
+                  </label>
+                </div>
+                <div class="child">
+
+                  <label>
+                    <input ng-model="actionData.type_id" value="12" type="radio"><span>南俱</span>
+                  </label>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="action-main-initiate-desc">
+              <div class="title">
+                <div class="left md-icon"><ng-md-icon  icon='mode_edit' style="fill:rgba(0,0,0,0.54)" size="28"></ng-md-icon></div>
+                <span>活动介绍</span>
+              </div>
+              <md-input-container class="action-main-initiate-subject" flex>
+                <label>描述..</label>
+                <textarea name="desc" ng-model="actionData.desc" columns="1" ></textarea>
+
+              </md-input-container>
+            </div>
+
+
+          </div>
+          <div class="center">
+
+              <div class="action-main-initiate-map">
+                <div class="title">
+                  <div class="left md-icon"><ng-md-icon  icon='room' style="fill:rgba(0,0,0,0.54)" size="28"></ng-md-icon></div>
+                  <span>地点</span>
+
+                </div>
+                <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GevBZzpPlA1tdBswzdp4d9GE"></script>
+                <md-input-container class="action-position-search" md-no-float>
+                  <input ng-model="actionData.addr_name" class="action-position-search-input" type="text" placeholder="Address" ng-change="addr()">
+                  {{actionData.addr_name}}
+
+                  <div style="position:absolute;top:0;left:0;display:none;">
+                    <input ng-model="actionData.addr_position_x" type="text" class="addrx">
+                    <input ng-model="actionData.addr_position_y" type="text" class="addry">
+                  </div>
+
+                </md-input-container>
+
+
+
+
+                <div id="actionMapIni">
+
+                </div>
+
+                <div id="actionMapReuslt" class="action-map-reuslt">
+                  <ul>
+
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+
+
+
+              </div>
+
+              <div class="action-main-initiate-start-time">
+                <div class="title">
+                  <div class="left md-icon"><ng-md-icon  icon='access_time' style="fill:rgba(0,0,0,0.54)" size="28"></ng-md-icon></div>
+                  <span>开始时间</span>
+                </div>
+                <md-input-container flex>
+                  <label>年月日..</label>
+                  <input type="date" name="start_date" ng-model="actionData.start_date">
+                </md-input-container>
+              </div>
+
+              <div class="action-main-initiate-end-time">
+                <div class="title">
+                  <div class="left md-icon"><ng-md-icon  icon='access_time' style="fill:rgba(0,0,0,0.54)" size="28"></ng-md-icon></div>
+                  <span>结束时间</span>
+                </div>
+                <md-input-container flex>
+                  <label>年月日..</label>
+                  <input type="date" name="end_date" ng-model="actionData.end_date">
+                </md-input-container>
+              </div>
+
+            <div class="clear"></div>
+          </div>
+
+          <div class="bottom">
+            <md-button class="md-raised md-primary action-btn-submit" layout center center>发起</md-button>
+          </div>
+        </form>
+        
+      </md-card-content>
+      {{message}}
+
+    </md-card>
+  </div>
+</div>
+<% include foot.ejs%>

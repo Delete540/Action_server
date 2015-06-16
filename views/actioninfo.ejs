@@ -1,0 +1,73 @@
+<div class="actions-info-mobile-child" ng-repeat="item in action.actions">
+  <md-card   id="{{item._id}}child">
+    <!--<img ng-src="{{item.picture}}" class="md-card-img" />-->
+    <md-card-content>
+      <md-list>
+        <md-list-item class="md-3-line">
+          <div class="md-list-item-text">
+            <p>{{item.desc}}</p>
+
+          </div>
+        </md-list-item>
+
+        <md-divider ></md-divider>
+        <md-list-item>
+          <div class="action-icon"><ng-md-icon  icon='access_time' style="fill: #ddd" size="28"></ng-md-icon></div>
+
+            <ul class="md-list-item-text action-list-info-text">
+              <li>
+                <span class="left">{{item.start_date | date:' hh:mm'}}~{{item.end_date | date:' hh:mm'}}</span>
+                <span class="right">{{item.timeDiff}}</span>
+              </li>
+              <li>
+                <span class="left">{{item.EEEE}}</span>
+                <span class="right">{{item.start_date | date:'yyyy'}}年{{item.start_date | date:' m'}}月{{item.start_date | date:'d'}}日</span>
+              </li>
+            </ul>
+
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-list-item>
+          <div class="action-icon"><ng-md-icon  icon='location_on' style="fill: #ddd" size="28"></ng-md-icon></div>
+
+            <ul class="md-list-item-text action-list-info-text">
+              <li>
+                <span class="left">{{item.addr_name}}</span>
+                <span class="right">距离这里</span>
+              </li>
+              <li>
+                <span class="left">{{item.addr_name}}</span>
+                <span class="right">{{item.distance}}</span>
+              </li>
+            </ul>
+
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-list-item>
+          <div class="action-icon"><ng-md-icon  icon='group' style="fill: #ddd" size="28"></ng-md-icon></div>
+
+            <ul class="md-list-item-text action-list-info-text">
+              <li>
+                <span class="left">{{item.name}}</span>
+                <span class="right">已参加</span>
+              </li>
+              <li>
+                <span class="left">负责人</span>
+                <span class="right">{{item.__v}}</span>
+              </li>
+            </ul>
+
+        </md-list-item>
+
+        <md-list-item>
+          <div class="action-info-btn" layout="row">
+            <md-button class="md-raised action-btn-default">我也要参加</md-button>
+            <md-button class="md-raised">分享</md-button>
+          </div>
+        </md-list-item>
+        </div>
+
+      </md-list>
+    </md-card-content>
+  </md-card>
+</div>

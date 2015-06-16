@@ -1,0 +1,84 @@
+<md-content flex="" role="navigation" class="md-default-theme">
+  <md-list>
+  <% if(user) {%>
+    <md-list-item class="md-3-line user-info">
+
+        <img ng-src="{{userPhoto}}" class="md-avatar" alt="{{ user.message.loginname }}" />
+
+        <div class="md-list-item-text">
+          <a href="/web/user/<%=user._id%>">
+          <h3><%=user.loginname%></h3>
+          <p><%=user.email%></p>
+          <p><%=user.nickname%></p>
+          </a>
+        </div>
+
+      </md-list-item>
+    <% }else{ %>
+      <md-list-item class="md-3-line">
+          <img ng-src="{{userPhoto}}" class="md-avatar" alt="{{ user.message.loginname }}" />
+
+          <div class="md-list-item-text">
+
+            <span>未登陆</span>
+            <a href="/web/login">请点击这里登陆</a>
+
+          </div>
+
+        </md-list-item>
+
+    <% }%>
+    <md-divider ></md-divider>
+    <ul class="action-left-menu-ul">
+      <li>
+
+          <md-button class="md-icon-button" >
+            <ng-md-icon class="left" icon='grade' style="fill:rgba(0,0,0,0.54)" size="30"></ng-md-icon>
+            <span class="title">活动</span>
+            <ng-md-icon class="right" icon='keyboard_arrow_right' style="fill:#eee" size="30"></ng-md-icon>
+          </md-button>
+      </li>
+      <% if(user) {%>
+      <li>
+
+          <md-button class="md-icon-button" href="/web/initiate">
+            <ng-md-icon class="left" icon='flag' style="fill:rgba(0,0,0,0.54)" size="30"></ng-md-icon>
+            <span class="title">发起</span>
+            <ng-md-icon class="right" icon='keyboard_arrow_right' style="fill:#eee" size="30"></ng-md-icon>
+          </md-button>
+      </li>
+      <li>
+
+          <md-button class="md-icon-button" href="/web/find">
+            <ng-md-icon class="left" icon='remove_red_eye' style="fill:rgba(0,0,0,0.54)" size="30"></ng-md-icon>
+            <span class="title">发现</span>
+            <ng-md-icon class="right" icon='keyboard_arrow_right' style="fill:#eee" size="30"></ng-md-icon>
+          </md-button>
+      </li>
+      <li>
+
+          <md-button class="md-icon-button">
+            <ng-md-icon class="left" icon='settings' style="fill:rgba(0,0,0,0.54)" size="30"></ng-md-icon>
+            <span class="title">设置</span>
+            <ng-md-icon class="right" icon='keyboard_arrow_right' style="fill:#eee" size="30"></ng-md-icon>
+          </md-button>
+      </li>
+      <% } %>
+      <li>
+
+          <md-button class="md-icon-button action-right-search-btn">
+            <ng-md-icon class="left" icon='search' style="fill:rgba(0,0,0,0.54)" size="30"></ng-md-icon>
+            <span class="title">搜索</span>
+            <ng-md-icon class="right" icon='keyboard_arrow_right' style="fill:#eee" size="30"></ng-md-icon>
+          </md-button>
+      </li>
+    </ul>
+    <md-divider ></md-divider>
+    <md-list-item>
+    <a class="test">111</a>
+    </md-list-item>
+
+  </md-list>
+
+
+</md-content>
