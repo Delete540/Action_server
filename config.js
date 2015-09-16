@@ -6,7 +6,7 @@ var config = {
 };
 
 if(process.env.NODE_ENV=='development'){
-  config.db='mongodb://192.168.59.103/action';
+  config.db='mongodb://localhost:27017/action';
 }
 config.path=process.cwd();
 
