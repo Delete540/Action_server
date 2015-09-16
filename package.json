@@ -33,6 +33,8 @@
     "jade": "~1.6.0",
     "jwt-simple": "^0.3.0",
     "kareem": "^1.0.1",
+    "less": "^2.5.1",
+    "less-middleware": "^2.0.1",
     "lodash": "^3.7.0",
     "lush": "^1.0.0",
     "media-typer": "^0.3.0",
