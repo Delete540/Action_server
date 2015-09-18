@@ -1,0 +1,250 @@
+  <% include layout.ejs %>
+  <% include backnav.ejs %>
+  <% include rightbtns.ejs %>
+
+  <%
+    function timeDif(sdate,edate){
+  		var dif=edate.getTime()-sdate.getTime(),str;
+      //计算出相差天数
+      var days=Math.floor(dif/(24*3600*1000));
+      //计算出小时数
+      var hours=Math.floor(dif%(24*3600*1000)/(3600*1000));
+      //计算相差分钟数
+      var minutes=Math.floor(((dif%(24*3600*1000))%(3600*1000))/(60*1000));
+      //计算相差秒数
+      //var seconds=Math.round((((dif%(24*3600*1000))%(3600*1000))%(60*1000))/1000);
+
+      /*if(days==0){
+        if(hours==0){
+          str=minutes+'分钟';
+        }else if(minutes!=0){
+        str=hours+'小时'+minutes+'分钟';
+        }else{
+          str=hours+'小时';
+        }
+      }else if(hours!=0){
+        str=days+'天'+hours+'小时';
+      }else{
+        str=days+'天';
+      }*/
+      str=days+'天'+hours+'小时'+minutes+'分钟';
+  		return str;
+  	 }
+      Date.prototype.Format = function(formatStr)
+    	{
+    		var str = formatStr;
+    		var Week = ['日','一','二','三','四','五','六'];
+
+    		str=str.replace(/yyyy|YYYY/,this.getFullYear());
+    		str=str.replace(/yy|YY/,(this.getYear() % 100)>9?(this.getYear() % 100).toString():'0' + (this.getYear() % 100));
+
+    		str=str.replace(/MM/,(this.getMonth()+1)>9?(this.getMonth()+1).toString():'0' + (this.getMonth()+1));
+    		str=str.replace(/M/g,(this.getMonth()+1));
+
+    		str=str.replace(/w|W/g,Week[this.getDay()]);
+
+    		str=str.replace(/dd|DD/,this.getDate()>9?this.getDate().toString():'0' + this.getDate());
+    		str=str.replace(/d|D/g,this.getDate());
+
+    		str=str.replace(/hh|HH/,this.getHours()>9?this.getHours().toString():'0' + this.getHours());
+    		str=str.replace(/h|H/g,this.getHours());
+    		str=str.replace(/mm/,this.getMinutes()>9?this.getMinutes().toString():'0' + this.getMinutes());
+    		str=str.replace(/m/g,this.getMinutes());
+
+    		str=str.replace(/ss|SS/,this.getSeconds()>9?this.getSeconds().toString():'0' + this.getSeconds());
+    		str=str.replace(/s|S/g,this.getSeconds());
+
+    		return str;
+    	};
+  %>
+  <div class="action-main " ng-click="close()">
+    <md-card class="action-search" ng-controller="ActionSearchControl">
+      <form ng-submit="seachAction()"  class="action-search-form">
+        <div layout layout-sm="column">
+          <md-input-container md-no-float class="action-input-search" style="width:100%">
+
+            <input ng-model="key" class="action-input-text" placeholder="search">
+          </md-input-container>
+          <md-button class="md-icon-button action-search-close" aria-label="Close" href="#" type="submit" hide-sm>
+            <div class="md-icon"><ng-md-icon  icon='close' style="fill: rgb(63,81,181)" size="28"></ng-md-icon></div>
+            <md-tooltip >
+              Close
+            </md-tooltip>
+          </md-button>
+        </div>
+
+      </form>
+      <md-card-content>
+        <div class="action-search-result">
+          <md-list>
+
+            <md-list-item class="md-2-line user-info"  ng-repeat="item in searchResult">
+              <ul><a href="/web/action/{{item._id}}">
+                <li class="left"><div class="left md-icon"><ng-md-icon  icon='flag' style="fill:#ddd" size="28"></ng-md-icon></div></li>
+                <li class="right">
+                  <p>活动名称:&nbsp{{item.name}}</p>
+                  <p>活动地点:&nbsp{{item.addr_name}}</p>
+                  <p>发起者:&nbsp{{item.creator}}</p>
+                  <p>活动开始时间:&nbsp{{item.start_date}}</p>
+                </li></a>
+              </ul>
+              <md-divider ></md-divider>
+            </md-list-item>
+
+          </md-list>
+        </div>
+      </md-card-content>
+    </md-card>
+    <div class="action-info-card action-main-actions action-main-act" ng-controller="ActionsInfoByIdControl" >
+      <md-card class="action-main-act-left"  id=<%=action._id%>>
+        <div class="top" >
+          <img ng-src="{{topicImg}}" class="md-card-img">
+        </div>
+        <md-card-content class="bottom">
+          <md-list>
+
+            <md-list-item class="md-3-line center">
+              <div class="md-list-item-text">
+                <h3><%=action.name%></h3>
+                <p><%=action.desc%></p>
+              </div>
+            </md-list-item>
+            <div class="clear"></div>
+            <md-divider ></md-divider>
+            <md-list-item class="bottom" >
+
+                <% if(user){%>
+                <md-button class="md-raised md-primary action-btn-submit"  layout center center ng-click="forkGet()">我也要参加</md-button>
+                <md-button class="md-raised  action-btn-link"  layout center center ng-click="exitAction()">退出活动</md-button>
+                <%}else{%>
+                  <md-button class="md-raised md-primary action-btn-submit"  layout center center href="/web">登录后即可参加</md-button>
+                <%}%>
+            </md-list-item>
+          <md-list>
+        </md-card-content>
+
+      </md-card>
+
+      <md-card class="action-main-act-right"  id=<%=action._id+'right'%>>
+        <md-card-content >
+          <md-list>
+            <md-list-item class="md-2-line center child">
+              <div class="left">
+                <img ng-src="{{userPhoto}}" class="md-avatar" alt=<%=creator_name%> />
+              </div>
+              <div class="right child-text">
+                <div class="row">
+                  <span class="left">发起：</span>
+                  <span class="right"><%=creator_name%></span>
+                </div>
+                <div class="clear"></div>
+                <div class="row">
+                  <span class="left">创建时间：</span>
+                  <span class="right"><%=action.create_date.Format("yyyy年MM月dd日")%></span>
+                </div>
+              </div>
+
+            </md-list-item>
+            <md-divider ></md-divider>
+            <md-list-item class="md-2-line center child">
+            <div class="left icon">
+              <div class="left md-icon"><ng-md-icon  icon='room' style="fill:#ddd" size="28"></ng-md-icon></div>
+            </div>
+            <div class="right child-text">
+              <div class="row">
+                <span class="left"><%=action.addr_name%></span>
+                <span class="right">距离这里</span>
+              </div>
+              <div class="clear"></div>
+              <div class="row">
+                <span class="left"><%=action.addr_name%></span>
+                <span class="right" id="mInfo"></span>
+                <div id="actionMapInfo"></div>
+                <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GevBZzpPlA1tdBswzdp4d9GE"></script>
+                <script>
+                  // 百度地图API功能
+                  var mapInfoX,mapInfoY;
+  	              var mapa = new BMap.Map("actionMapInfo");
+  	              var point = new BMap.Point(116.331398,39.897445);
+  	              mapa.centerAndZoom(point,12);
+
+  	              var geolocation = new BMap.Geolocation();
+  	              geolocation.getCurrentPosition(function(r){
+  		            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+  			            var mk = new BMap.Marker(r.point);
+  			            mapa.addOverlay(mk);
+  			            mapa.panTo(r.point);
+                    var pointA = new BMap.Point(r.point.lng,r.point.lat);
+                    var pointB = new BMap.Point(<%=action.addr_position_x%>,<%=action.addr_position_y%>)
+                    //map.getDistance(pointA,pointB)).toFixed(2)%1000;
+                    $('#mInfo').text((mapa.getDistance(pointA,pointB)/1000).toFixed(2)+'公里')
+                    console.log(pointA)
+                    console.log(pointB);
+  		            }
+  		            else {
+                    $('#mInfo').text('null');
+  		            }
+  	             },{enableHighAccuracy: true})
+
+                </script>
+              </div>
+            </div>
+            </md-list-item>
+            <md-divider ></md-divider>
+            <md-list-item class="md-2-line center child">
+            <div class="left icon">
+              <div class="left md-icon"><ng-md-icon  icon='access_time' style="fill:#ddd" size="28"></ng-md-icon></div>
+            </div>
+            <div class="right child-text">
+              <div class="row">
+                <span class="left"><%=action.start_date.Format('hh:mm')%>~<%=action.end_date.Format('hh:mm')%></span>
+                <span class="right"><%=timeDif(action.start_date,action.end_date)%></span>
+              </div>
+              <div class="clear"></div>
+              <div class="row">
+                <span class="left">星期<%=action.start_date.Format('w')%></span>
+                <span class="right"><%=action.start_date.Format('yyyy年MM月dd日')%></span>
+
+              </div>
+            </div>
+            </md-list-item>
+            <md-divider ></md-divider>
+            <md-list-item class="md-2-line center child">
+            <div class="left icon">
+              <div class="left md-icon"><ng-md-icon  icon='group' style="fill:#ddd" size="28"></ng-md-icon></div>
+            </div>
+            <div class="right child-text">
+              <div class="row">
+                <span class="left">负责人</span>
+                <span class="right"><%=creator_name%></span>
+              </div>
+              <div class="clear"></div>
+              <div class="row">
+                <span class="left">已参加</span>
+                <span class="right"><%=action.fork_count%></span>
+              </div>
+            </div>
+            </md-list-item>
+            <md-divider ></md-divider>
+            <md-list-item>
+              <div class="action-info-card-bottom-btns">
+                <md-button class="md-fab md-mini" aria-label="" >
+                  <div class="md-icon"><ng-md-icon  icon='share' style="fill: white" size="28"></ng-md-icon></div>
+                </md-button>
+                <md-button class="md-fab md-mini" aria-label=""  style="background-color:#259b24" >
+                  <div class="md-icon"><ng-md-icon  icon='thumb_up' style="fill: white" size="28" ng-click="starUp()"></ng-md-icon></div>
+                </md-button>
+              </div>
+
+            </md-list-item>
+
+
+          <md-list>
+
+
+        </md-card-content>
+
+      </md-card>
+    </div>
+  </div>
+  <% include foot.ejs%>
