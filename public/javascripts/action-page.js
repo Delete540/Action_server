@@ -1,0 +1,1 @@
+var actionBtnIcons=new SVGMorpheus('#icon');

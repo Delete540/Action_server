@@ -1,42 +1,4 @@
+<!-- Login page -->
 <% include layout.ejs %>
-<div class="action-login-top">
-  <div class="left">
-    <md-button class="action-login-top-btn md-icon-button md-button md-default-theme" href="/web">
-      <div class="md-icon"><ng-md-icon  icon='home' style="fill:#2196f3" size="28"></ng-md-icon></div>
-      <md-tooltip hide-sm>
-        首页
-      </md-tooltip>
-    </md-button>
-  </div>
-  <div class="right">
-    <md-button class="action-login-top-btn md-icon-button md-button md-default-theme" ng-controller="IndexTopMenuAppCtrl" ng-click="showAdvanced($event)">
-      <div class="md-icon"><ng-md-icon  icon='info_outline' style="fill:#2196f3" size="28"></ng-md-icon></div>
-      <md-tooltip hide-sm>
-        关于
-      </md-tooltip>
-    </md-button>
-  </div>
-</div>
-<div class="action-login-main" ng-controller="ActionUserSignControl">
 
-  <h1 class="title">Welcome!</h1>
-
-  <form ng-submit="login()">
-
-       <md-input-container>
-         <label>账号</label>
-         <input ng-model="userInfoData.loginname" ng-required="true" type="text">
-
-
-       </md-input-container>
-       <md-input-container>
-         <label>密码</label>
-         <input ng-model="userInfoData.passwd"  ng-required="true" type="password">
-
-       </md-input-container>
-
-      <md-button class="md-raised md-primary action-btn-submit"  layout center center >登录</md-button>
-  </form>
-      <md-button class="md-raised action-btn-link"  layout center center href="/web/signup">注册</md-button>
-</div>
 <% include foot.ejs%>
