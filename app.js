@@ -8,11 +8,12 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var index = require('./routes/web/index');
 var config = require('./config');
 var busboy = require('connect-busboy');
 var lessMiddleware = require('less-middleware');
 
-var web=require('./routes/web');
+//var web=require('./routes/web');
 
 var app = express();
 
@@ -55,7 +56,8 @@ app.use('/action',require('./routes/action'));
 app.use('/search',require('./routes/search'));
 app.use('/type',require('./routes/type'));
 app.use('/notification',require('./routes/notif'));
-app.use('/web',web);
+app.use('/index',index);
+//app.use('/index',web);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
