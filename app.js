@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var config = require('./config');
 var busboy = require('connect-busboy');
+var lessMiddleware = require('less-middleware');
 
 var web=require('./routes/web');
 
@@ -32,6 +33,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(lessMiddleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   store : new MongoStore({ url: config.db , ttl: 4 * 60 * 60}), //4 hour
