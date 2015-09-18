@@ -9,6 +9,7 @@ var MongoStore = require('connect-mongo')(session);
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var index = require('./routes/web/index');
+var indexUsers = require('./routes/web/users');
 var config = require('./config');
 var busboy = require('connect-busboy');
 var lessMiddleware = require('less-middleware');
@@ -57,6 +58,7 @@ app.use('/search',require('./routes/search'));
 app.use('/type',require('./routes/type'));
 app.use('/notification',require('./routes/notif'));
 app.use('/index',index);
+app.use('/index/users',indexUsers);
 //app.use('/index',web);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
