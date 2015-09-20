@@ -1,1 +1,3 @@
-var actionBtnIcons=new SVGMorpheus('#icon');
+$(function(){
+   var actionBtnIcons=new SVGMorpheus('#icon'); 
+})
