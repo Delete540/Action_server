@@ -24,6 +24,10 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
+#bower install public lib for JavaScript/css
+#please install JavaScript/css lib to public/lib/...
+public/lib/*
+
 # Users Environment Variables
 
 .bowerrc
