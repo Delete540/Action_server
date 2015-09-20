@@ -16,6 +16,8 @@ $ cd 项目目录
 
 $ bower install
 
+$ npm install supervisor -g
+
 $ npm install
 
 $ npm start
