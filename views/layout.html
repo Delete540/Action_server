@@ -10,9 +10,9 @@
     <link rel="stylesheet" type="text/css" href="/lib/Materialize/dist/css/materialize.min.css">  
      
     <!-- IE Fix css-->
-    <!--if IE
-    link(type='text/css', rel='stylesheet', href='/stylesheets/style-IE.css')
-    -->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/stylesheets/action-IE-fix/style-IE.css">
+    <![endif]-->
     
     <!-- jquery.min.js -->
     <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
@@ -37,9 +37,9 @@
     <!-- end -->
     
     <!-- IE html5 fix js-->
-      <!--if IE 9
+      <!--[if lt IE 9]>
       <script type="text/javascript" src="/lib/html5shiv/dist/html5shiv.min.js"></script>
-      -->
+      <![endif]-->
     <!-- end -->
     
   </head>
