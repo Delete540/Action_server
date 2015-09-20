@@ -13,7 +13,7 @@ var indexUsers = require('./routes/web/users');
 var config = require('./config');
 var busboy = require('connect-busboy');
 var lessMiddleware = require('less-middleware');
-
+var ejs = require('ejs');
 //var web=require('./routes/web');
 
 var app = express();
@@ -22,12 +22,12 @@ var modole = require('./module');
 var proxy=require('./proxy');
 
 
-
+app.engine('html',ejs.__express);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
