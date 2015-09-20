@@ -30,7 +30,6 @@ public/lib/*
 
 # Users Environment Variables
 
-.bowerrc
 .lock-wscript
 .idea
 node_modules
