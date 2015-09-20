@@ -25,7 +25,8 @@ build/Release
 node_modules
 
 # Users Environment Variables
-.browerrc
+
+.bowerrc
 .lock-wscript
 .idea
 node_modules
