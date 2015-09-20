@@ -1,15 +1,16 @@
 //Angular & Angular Material conifg
 angular.module('ActionApp', ['ngMaterial','ngMdIcons'])
 
-
+//Material config
 .config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('defaultTheme')
-    .primaryPalette('blue');
+  // $mdThemingProvider.theme('defaultTheme')
+  //   .primaryPalette('blue');
 })
 
-.controller('ActionEventCtrl',function ($scope, $timeout, $mdSidenav, $mdUtil, $log){
-  $scope.$on('IndexTopMenuChange',function(event,msg){
-    //console.log('parent',msg);
-    $scope.$broadcast('IndexTopMenuChangeParrent',msg);
-  });
+.controller('ActionEventController',function ($scope, $timeout, $mdSidenav, $mdUtil, $log){
+  
 })
+
+  .controller('ActionHeadController',function(){})
+  
+  .controller('ActionHeadNavController',function(){})
