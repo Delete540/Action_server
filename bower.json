@@ -18,6 +18,7 @@
     "angular-material": "~0.11.0",
     "angular-material-icons": "~0.6.0",
     "jquery": "jQuery#~2.1.4",
+    "material-design-icons": "~2.0.0",
     "Materialize": "materialize#~0.97.1",
     "svg-morpheus": "~0.1.8"
   },
