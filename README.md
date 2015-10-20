@@ -9,16 +9,16 @@ Hello
 安装Node.js
 
 安装并配置MongoDB
-````
-$ git clone 本项目
 
-$ cd 项目目录
+>$ git clone 本项目
 
-$ bower install
+>$ cd 项目目录
 
-$ npm install supervisor -g
+>$ bower install
 
-$ npm install
+>$ npm install supervisor -g
 
-$ npm start
-````
+>$ npm install
+
+>$ npm start
+
