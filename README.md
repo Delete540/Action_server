@@ -1,5 +1,8 @@
 Action
 ======
+
+<img src="public/img/favicon-backup.png" style="width:96px;height:96px;"/>
+
 Hello
 请各位每次贡献代码之后在readme里面做一些简单的记录。
 
@@ -12,13 +15,21 @@ Hello
 
 >$ git clone 本项目
 
->$ cd 项目目录
-
->$ bower install
+安装supervisor
 
 >$ npm install supervisor -g
 
+>$ cd 项目目录
+
+安装javascript库
+
+>$ bower install
+
+安装程序依赖包
+
 >$ npm install
+
+运行程序
 
 >$ npm start
 
