@@ -97,10 +97,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
-/**
- * teswtestest中文
- */
-function test() {
 
-}
 module.exports = app;
