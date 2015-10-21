@@ -11,6 +11,6 @@ angular.module('ActionApp', ['ngMaterial','ngMdIcons'])
   
 })
 
-  .controller('ActionHeadController',function(){})
+  .controller('ActionHeaderController',function(){})
   
-  .controller('ActionHeadNavController',function(){})
+  .controller('ActionHeaderNavController',function(){})
