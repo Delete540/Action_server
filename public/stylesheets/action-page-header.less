@@ -3,9 +3,39 @@
 	height: @height-top-default;
 }
 
+.action-header .action-header-nav .nav-wrapper{
+	height: @action-button-size;
+	margin: @action-button-size/6 0;
+}
+
+.action-header .action-header-nav .nav-wrapper .action-header-button{
+	width:@action-button-size;
+	height:@action-button-size;
+	box-shadow: none;
+}
+.action-header .action-header-nav .action-header-title{
+	line-height: @action-button-size;
+}
+
 .action-header .action-header-nav .action-header-title .action-logo{
 	
 }
+.action-header .action-header-nav .action-header-nav-right-menu{
+	
+	line-height: @action-button-size;
+	
+}
+
+.action-hamburger-button{
+	margin-left: -@action-button-size/12; 
+	padding: 0 @action-button-size/8;
+}
+.action-header-button,
+.action-header-button:focus{
+	background-color: @action-style-color-0;
+}
+
+
 
 .action-header-nav .nav-wrapper  i{
 	font-size: @action-button-size/2; 
