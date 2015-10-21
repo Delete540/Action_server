@@ -1,12 +1,12 @@
 <!-- Head -->
-<header class="action-header blue darken-1" id="action-header" ng-controller="ActionHeadController">
+<header class="action-header blue darken-1" id="action-header" ng-controller="ActionHeaderController">
 	
 	<div class="navbar-fixed">
 		<nav class="action-header-nav action-container action-box-shadow-none action-style-color-0" id="acton-header-nav" ng-controller="ActionHeaderNavController">
 			
 			<div class="nav-wrapper">
 				
-				<button class="action-hamburger-button action-header-button  waves-effect left">
+				<button class="action-hamburger-button action-header-button left waves-effect ">
 					<i class="material-icons">menu</i>
 				</button>
 				
@@ -16,24 +16,42 @@
 					
 				</div>
 				
-				<ul class="action-header-nav-right-menu right hide-on-med-and-down">
+				<div class="action-header-nav-right-menu right action-d-down-hide">
+					
+					<button class="action-signin action-header-button waves-effect"><i class="material-icons">account_circle</i></button>
 				
-					<li><button class="action-header-button waves-effect"><i class="material-icons">star</i></button></li>
+					<button class="action-header-button waves-effect"><i class="material-icons">star</i></button>
 					
-					<li><button href="#" class="action-header-button waves-effect "><i class="material-icons">share</i></button></li>
+					<button  class="action-header-button waves-effect "><i class="material-icons">share</i></button>
 					
-				</ul>
+					
+				</div>
+				
+				<div class="action-header-nav-right-menu action-mobile right action-d-up-hide">
+					
+					<button class=" action-header-button waves-effect"><i class="material-icons">account_circle</i></button>
+				
+					<button class=" action-header-button waves-effect"><i class="material-icons">add</i></button>
+					<button class="action-header-button waves-effect action-s-down-hide"><i class="material-icons">search</i></button>
+					
+					<!--<li><button  class="action-header-button waves-effect "><i class="material-icons">share</i></button></li>-->
+					
+					
+				</div>
 				
 			</div>
-			
-			
-			
+		
 		</nav>
+	</div>
+	
+	<div class="action-header-bottom action-container action-d-down-hide">
+		<button class="action-signup btn waves-effect">加入我们！</button>
+		<button class="action-signin btn waves-effect">登录</button>
 	</div>
 	
 </header>
 
-<div style="height:100%;"></div>
+
 <!--
 <div class="action-head" id="action-head" ng-controller="ActionHeadController">
 	 	
