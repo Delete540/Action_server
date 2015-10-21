@@ -1,0 +1,35 @@
+
+@action-button-size:48px;
+
+.action-hamburger-button,
+.action-button-default{
+	background-color: @action-style-color-default;
+	background-size: @action-button-size*.5;
+	box-shadow: @action-box-shadow-default;
+	border:0;
+	color: inherit;
+    font: inherit;
+    margin: 0;
+	text-transform: none;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.action-hamburger-button{
+	box-shadow: none;
+	width:@action-button-size;
+	height:@action-button-size;
+	margin: -@action-button-size/4; 
+	padding: 0 @action-button-size/12;
+}
+.action-hamburger-button,
+.action-hamburger-button:focus{
+	background-color: @action-style-color-0;
+}

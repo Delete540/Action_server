@@ -10,7 +10,8 @@ router.get('/',function (req,res,next) {
   res.render('index',{
     user:req.session.user,
     active:'active',
-    page:'index'
+    page:'index',
+    title:'Action'
   });
 });
 
