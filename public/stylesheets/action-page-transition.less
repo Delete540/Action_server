@@ -3,6 +3,8 @@
 @action-opacity-transition:opacity .2s ease-in;
 @action-box-shadow-transition:box-shadow .2s ease-in;
 @action-font-size-transition:font-size .2s ease-in;
+@action-left-transition:left  .6s ease-in;
+@action-right-transition:right  .6s ease-in;
 a,div,h1,h2,h3,h4,h5,h6,li,ul,nav,
 .action-style-color-0,
 .action-active-bcd,
@@ -42,4 +44,22 @@ a,div,h1,h2,h3,h4,h5,h6,li,ul,nav,
 	-moz-transition:@action-font-size-transition;
 	-o-transition:@action-font-size-transition;
 	transition:@action-font-size-transition;
+}
+
+a,div,h1,h2,h3,h4,h5,h6,li,ul,nav,
+.action-mobile-side-search-page,
+.action-left-transition{
+  -webkit-transition:@action-left-transition;
+	-moz-transition:@action-left-transition;
+	-o-transition:@action-left-transition;
+	transition:@action-left-transition;
+}
+
+a,div,h1,h2,h3,h4,h5,h6,li,ul,nav,
+
+.action-right-transition{
+  -webkit-transition:@action-right-transition;
+	-moz-transition:@action-right-transition;
+	-o-transition:@action-right-transition;
+	transition:@action-right-transition;
 }
