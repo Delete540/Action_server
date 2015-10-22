@@ -26,7 +26,7 @@
 .action-header .action-header-nav .action-header-title .action-logo{
 	
 }
-
+.action-header .action-header-nav .action-search,
 .action-header .action-header-nav .action-header-nav-right-menu{
 	
 	line-height: @action-button-size;
@@ -69,3 +69,28 @@
 .action-header .action-header-bottom button.action-signin{
 	background-color: @action-style-color-default*1.2;
 }
+
+.action-header .action-header-nav .action-search {
+	width:@action-button-size*3.8;
+	background-color: rgba(51,51,51,0.08);
+	height: 32px;
+	margin: @action-button-size/6 32px @action-button-size/6 0;
+	border-radius: @action-border-radius-default;
+}
+
+.action-header .action-header-nav .action-search input.action-input-text:focus,
+.action-header .action-header-nav .action-search input.action-input-text{
+	width:@action-button-size*3;
+	height: 32px;
+	border: @action-style-color-default;
+	background-color: rgba(255,255,255,0);
+	box-shadow: none;
+	padding: 2px 3px;
+	
+	//margin: -@action-button-size 0 0 -5px;
+}
+
+// .action-header .action-header-nav .action-search span.material-icons {
+//     line-height: 24px;
+//     margin: 12px 0;
+// }
