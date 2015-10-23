@@ -29,8 +29,9 @@ function actionHeaderButtonEvent(){
     $('.action-hamburger-button').click(function(){
         //event.stopPropagation();
         $('body').css('overflow','hidden').append('<div class="action-mask action-mask-black"></div>');
-        $('.action-drag-target').addClass('action-active-width-full').removeClass('action-active-width-0');
+        
         $('.action-side-nav').addClass('action-active-x-0').removeClass('action-active-x-left').css('overflow','auto');
+        $('.action-drag-target').addClass('action-active-width-full').removeClass('action-active-width-0');
         //$('.action-mask-black').addClass('action-active-opacity-1').removeClass('action-active-opacity-0');
     });
     
