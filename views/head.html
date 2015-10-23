@@ -33,9 +33,9 @@
 					
 					<button class=" action-header-button waves-effect waves-circle"><i class="material-icons">account_circle</i></button>
 					
-					<button class="action-header-mobile-search-button action-header-button waves-effect waves-circle" onclick="openActionMobileSideNav()"><i class="material-icons">search</i></button>
+					<button class="action-header-mobile-search-button action-header-button waves-effect waves-circle" ><i class="material-icons">search</i></button>
 					
-					<button class=" action-header-button waves-effect waves-circle"><i class="material-icons">add</i></button>
+					<button class="action-header-mobile-add-button action-header-button waves-effect waves-circle dropdown-button" data-activates="action-mobile-nav-dropdown"><i class="material-icons">add</i></button>
 					
 					
 					<!--<li><button  class="action-header-button waves-effect "><i class="material-icons">share</i></button></li>-->
@@ -51,6 +51,12 @@
 			</div>
 		
 		</nav>
+		<ul id="action-mobile-nav-dropdown" class="action-mobile-nav-dropdown  dropdown-content ">
+			<li><a href="#!"><span class="material-icons">mail</span>消息</a></li>
+			<li><a href="#!"><span class="material-icons">share</span>分享</a></li>
+			<li class="divider"></li>
+			<li><a href="#!"><span class="material-icons">exit_to_app</span>退出</a></li>
+		</ul>
 	</div>
 	
 	<div class="action-header-bottom action-container action-d-down-hide">
