@@ -9,17 +9,10 @@ $(function(){
        
        actionMobileSideNavEvent();
        
-      
-       
-       console.log($('.action-mobile-side-search-page').scrollTop());
         $(window).scroll(function () {
             actionScrollEvent();
         });
         
-        
-        
-        
-       
    });
    
 })
