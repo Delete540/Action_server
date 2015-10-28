@@ -2,6 +2,7 @@
 @action-button-size:48px;
 .action-search-button,
 .action-back-button,
+//.action-close-button,
 .action-header-button,
 .action-button-default{
 	background-color: @action-style-color-default;
@@ -22,4 +23,8 @@
     vertical-align: middle;
     white-space: nowrap;
 }
-
+.action-close-button{
+    color: @action-style-color-black;
+    position: fixed;
+    right: 24px;
+}
