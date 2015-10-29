@@ -7,7 +7,7 @@ $(function(){
    $(window).bind('resize load', function() {
        actionScrollEvent();
        
-       actionMobileSideNavEvent();
+       actionMobileEvent();
        
         $(window).scroll(function () {
             actionScrollEvent();
@@ -20,23 +20,40 @@ $(function(){
 
 function actionHeaderButtonEvent(){
     
-    $('.action-hamburger-button').click(function(){
-        //event.stopPropagation();
+    // $('.action-hamburger-button').click(function(){
+    //     //event.stopPropagation();
         
         
-        $('#action-side-nav-left').addClass('action-active-xl-0').removeClass('action-active-xl-left').css('overflow','auto');
-        $('body').css('overflow','hidden').append('<div class="action-mask action-mask-black"></div>');
-        $('.action-drag-target').addClass('action-active-width-full').removeClass('action-active-width-0');
-        //$('.action-mask-black').addClass('action-active-opacity-1').removeClass('action-active-opacity-0');
+    //     $('#action-side-nav-left').addClass('action-active-xl-0').removeClass('action-active-xl-left').css('overflow','auto');
+    //     $('body').css('overflow','hidden').append('<div class="action-mask action-mask-black"></div>');
+    //     $('.action-drag-target').addClass('action-active-width-full').removeClass('action-active-width-0');
+    //     //$('.action-mask-black').addClass('action-active-opacity-1').removeClass('action-active-opacity-0');
+    // });
+    
+    // $('.action-drag-target').click(function(){
+    //     $('body').removeAttr('style');
+    //     $('.action-drag-target').addClass('action-active-width-0').removeClass('action-active-width-full');
+    //     $('#action-side-nav-left').addClass('action-active-xl-left').removeClass('action-active-xl-0');
+    //     //$('.action-mask-black').addClass('action-active-opacity-0').removeClass('action-active-opacity-1');
+    //     $('.action-mask-black').remove();
+    // });
+    
+    $(' .action-hamburger-button').actionSideNav({
+        'width':'240px',
+        'position':'left',
+        'bodyHidden':true,
+        'mask':true,
+        'maskType':'black'
+        //'closeButton':$('.action-side-nav#action-side-nav-place .action-side-nav-header nav .nav-wrapper .action-back-button'),
+        // 'ready':function(){
+        //     $('.action-header-nav .nav-wrapper .action-search').hide();
+        // },
+        // 'complete':function(){
+        //     $('.action-header-nav .nav-wrapper .action-search').show();
+        // }
     });
     
-    $('.action-drag-target').click(function(){
-        $('body').removeAttr('style');
-        $('.action-drag-target').addClass('action-active-width-0').removeClass('action-active-width-full');
-        $('#action-side-nav-left').addClass('action-active-xl-left').removeClass('action-active-xl-0');
-        //$('.action-mask-black').addClass('action-active-opacity-0').removeClass('action-active-opacity-1');
-        $('.action-mask-black').remove();
-    });
+    
     
     $('.action-header-mobile-add-button').click(function(){
         $('.action-mobile-nav-dropdown').css({
@@ -89,25 +106,18 @@ function actionScrollEvent(){
     
 }
 
-function actionSideNavEvent(){
-    $(' .action-header-nav-right-menu .action-header-mobile-search-button').actionClickEvent()
-}
 
-function actionMobileSideNavEvent(){
-    // $('.action-mobile-side-search-page-header nav .nav-wrapper .action-mobile-search')
-    //     .css('width',($('.action-mobile-side-search-page-header nav .nav-wrapper').width()-$('.action-mobile-side-search-page-header nav button').width()-36));
+
+function actionMobileEvent(){
     
-    $(' .action-header-nav-right-menu .action-header-mobile-search-button').click(function(){
-        $('.action-mobile-side-search-page').addClass('action-active-xr-0').removeClass('action-active-xr-right');
-        $('body').css('overflow','hidden');
-        $('.action-mobile-side-search-page').css('overflow','auto');
+    
+    $(' .action-header-nav-right-menu .action-header-mobile-search-button').actionSideNav({
+        'width':'100%',
+        'position':'right',
+        'bodyHidden':true,
+        'closeButton':$('.action-mobile-side-search-page .action-side-nav-header nav .nav-wrapper button.action-back-button'),
+        
     });
-    $('.action-mobile-side-search-page .action-side-nav-header nav .nav-wrapper button.action-back-button').click(function(){
-        $('.action-mobile-side-search-page').addClass('action-active-xr-right').removeClass('action-active-xr-0');
-        $('body').removeAttr('style');
-    });
-    
-    
 }
 
 function actionDesktopButtonHoverEvent(){
@@ -140,8 +150,7 @@ function actionDesktopButtonHoverEvent(){
                 'animation':'easy',
                 'event':'click',
                 'time':.6,
-                'dragTarget':true,
-                'mask':true,
+                'mask':false,
                 'maskType':'black',
                 'position':'left',
                 'bodyHidden':false,
@@ -152,31 +161,54 @@ function actionDesktopButtonHoverEvent(){
             
             var options =  $.extend(defaults,opts || {});
             
+            
+            
             var setObj={
                 'width':options.width,
-                [options.position]: '-105%',
+                'left':null,
+                'right':null,
                 'overflow-y': 'auto'
-            }
+            };
             
             var setSideNavObj = function(obj){
 
                     $('#'+obj.attr('action-data')).css(setObj)
                                    .find('.action-side-nav-header').css('width',options.width);
                  
-            }
+            };
+            
+            var setDragTarget = {
+                'width':0
+            };
+            
+            var setMask = {
+                
+                // if(options.maskType=='black'){
+                //     'background-color':'rgba(0, 0, 0, 0.5)'
+                // }else{
+                //     'background-color':options.maskType,
+                // }
+                'backgroundColor':options.maskType
+                
+            };
             
             return this.each(function () {
                 var $this=$(this);
                       
                 try {
                    
-                   
+                    options.position=='left'?setObj.left='-105%':setObj.right='-105%';
                    
                     setSideNavObj($this); 
                         
                     $this.on(options.event,function(){
                    
-                        setObj.left?setObj.left=0:setObj.right=0;
+                        // if(options.position='left'){
+                        //      setObj.left=0;
+                        // }else if(options.position='right'){
+                        //     setObj.right=0;
+                        // }
+                        setObj.left=='-105%'?setObj.left=0:setObj.right=0;
                         
                         setSideNavObj($this); 
                         
@@ -186,20 +218,81 @@ function actionDesktopButtonHoverEvent(){
                             $('body').removeAttr('style');
                         }
                         
+                        if(options.mask==true){
+                            $('body').append('<div class="action-mask action-mask-black"></div>');
+                            
+                            setDragTarget.width="100%";
+                            $('.action-drag-target').css(setDragTarget);
+                            
+                            if(options.maskType=='black'){
+                                setMask.backgroundColor='rgba(0, 0, 0, 0.5)';
+                            }
+                            $('.action-mask').css(setMask);
+                            
+                        }else{
+                            $('.action-mask').remove();
+                        }
+                        
                         if($.isFunction(options.ready)){
                            options.ready.apply(this);
                         }
                     
                     });
-                    options.closeButton.on('click',function(){
-                        setObj.left?setObj.left='-105%':setObj.right='-105%';
+                    
+                    if(options.closeButton!=null){
+                        options.closeButton.on('click',function(){
+                           // console.log(setObj.left?setObj.left:setObj.right);
+                           //var temp=(setObj.position='left'?setObj.position='left':setObj.position='right');
+                           //console.log(temp);
+                           //options.position='left'?setObj.left='-105%':setObj.right='-105%'
+                            //setObj.left?setObj.left='-105%':setObj.right='-105%';
+                            
+                            
+                            // if(options.position='left'){
+                            //     setObj.left='-105%';
+                            // }else if(options.position='right'){
+                            //     setObj.right='-105%'
+                            // }
+                            setObj.left==0?setObj.left='-105%':setObj.right='-105%';
+                            
+                            setSideNavObj($this); 
+                            
+                            if(options.bodyHidden==true){
+                                $('body').removeAttr('style');
+                            }
+                            
+                            if(options.mask==true){
+                                setDragTarget.width=0;
+                                $('.action-drag-target').css(setDragTarget);
+                                $('.action-mask').remove();
+                            }
+                            
+                            // if(options.mask==true&&$('.action-drag-target')){
+                            //     $('.action-mask').remove();
+                            // }
+                            
+                            if($.isFunction(options.complete)){
+                            options.complete.apply(this);
+                            }
+
+                        });
+                    }                                          
+                    
+                    $('.action-drag-target').on('click',function(){
+                        
+                    
+                        setDragTarget.width=0;
+                        $('.action-drag-target').css(setDragTarget);
+                    
+                        $('.action-mask').remove();
+                    
+                        
+                        setObj.left==0?setObj.left='-105%':setObj.right='-105%';
+                        
                         setSideNavObj($this); 
                         
-                        if($.isFunction(options.complete)){
-                           options.complete.apply(this);
-                        }
-                       
-                    });    
+                    });
+                        
 
                 } catch (e) {
                     console.log(e.message);
