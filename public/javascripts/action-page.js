@@ -57,24 +57,14 @@ function actionHeaderButtonEvent(){
         'width':'324px',
         'position':'right',
         'closeButton':$('.action-side-nav#action-side-nav-place .action-side-nav-header nav .nav-wrapper .action-back-button'),
-        'before':function(){
+        'ready':function(){
             $('.action-header-nav .nav-wrapper .action-search').hide();
         },
-        'after':function(){
+        'complete':function(){
             $('.action-header-nav .nav-wrapper .action-search').show();
         }
     });
    
-    //'callback':function(){
-           // $('.action-header-nav .nav-wrapper .action-search').hide();
-           //console.log($('.action-side-nav#action-side-nav-place').attr('style'));
-           //$('.action-header-nav .nav-wrapper .action-search').show();
-        //    if($('.action-side-nav#action-side-nav-place').attr('style')==0){
-        //        $('.action-header-nav .nav-wrapper .action-search').hide();
-        //    }else{
-        //        $('.action-header-nav .nav-wrapper .action-search').show();
-        //    }
-        //}
 }
 
 function actionScrollEvent(){
@@ -156,8 +146,8 @@ function actionDesktopButtonHoverEvent(){
                 'position':'left',
                 'bodyHidden':false,
                 'closeButton':null,
-                'before':null,
-                'after':null
+                'ready':null,
+                'complete':null
             };
             
             var options =  $.extend(defaults,opts || {});
@@ -169,11 +159,6 @@ function actionDesktopButtonHoverEvent(){
             }
             
             var setSideNavObj = function(obj){
-                //console.log(obj.attr('action-data'));
-               
-                //$('#'+obj.attr('action-data'))
-               
-                    
 
                     $('#'+obj.attr('action-data')).css(setObj)
                                    .find('.action-side-nav-header').css('width',options.width);
@@ -190,8 +175,6 @@ function actionDesktopButtonHoverEvent(){
                     setSideNavObj($this); 
                         
                     $this.on(options.event,function(){
-                    //console.log(setObj.left?setObj.left:setObj.right);
-                    //setSideNavObj($this); 
                    
                         setObj.left?setObj.left=0:setObj.right=0;
                         
@@ -203,30 +186,25 @@ function actionDesktopButtonHoverEvent(){
                             $('body').removeAttr('style');
                         }
                         
-                        if($.isFunction(options.before)){
-                           options.before.apply(this);
+                        if($.isFunction(options.ready)){
+                           options.ready.apply(this);
                         }
                     
                     });
                     options.closeButton.on('click',function(){
                         setObj.left?setObj.left='-105%':setObj.right='-105%';
                         setSideNavObj($this); 
-                        //console.log($this);
-                        //$('#'+$this.attr('action-data')).css(setObj);
                         
-                        if($.isFunction(options.after)){
-                           options.after.apply(this);
+                        if($.isFunction(options.complete)){
+                           options.complete.apply(this);
                         }
                        
                     });    
-                    //console.log(flag);    
-                   
-                    
+
                 } catch (e) {
                     console.log(e.message);
                 }    
-                
-                
+                               
             });
             
         },
