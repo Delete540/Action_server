@@ -20,37 +20,13 @@ $(function(){
 
 function actionHeaderButtonEvent(){
     
-    // $('.action-hamburger-button').click(function(){
-    //     //event.stopPropagation();
-        
-        
-    //     $('#action-side-nav-left').addClass('action-active-xl-0').removeClass('action-active-xl-left').css('overflow','auto');
-    //     $('body').css('overflow','hidden').append('<div class="action-mask action-mask-black"></div>');
-    //     $('.action-drag-target').addClass('action-active-width-full').removeClass('action-active-width-0');
-    //     //$('.action-mask-black').addClass('action-active-opacity-1').removeClass('action-active-opacity-0');
-    // });
-    
-    // $('.action-drag-target').click(function(){
-    //     $('body').removeAttr('style');
-    //     $('.action-drag-target').addClass('action-active-width-0').removeClass('action-active-width-full');
-    //     $('#action-side-nav-left').addClass('action-active-xl-left').removeClass('action-active-xl-0');
-    //     //$('.action-mask-black').addClass('action-active-opacity-0').removeClass('action-active-opacity-1');
-    //     $('.action-mask-black').remove();
-    // });
-    
     $(' .action-hamburger-button').actionSideNav({
         'width':'240px',
         'position':'left',
         'bodyHidden':true,
         'mask':true,
         'maskType':'black'
-        //'closeButton':$('.action-side-nav#action-side-nav-place .action-side-nav-header nav .nav-wrapper .action-back-button'),
-        // 'ready':function(){
-        //     $('.action-header-nav .nav-wrapper .action-search').hide();
-        // },
-        // 'complete':function(){
-        //     $('.action-header-nav .nav-wrapper .action-search').show();
-        // }
+
     });
     
     
@@ -73,7 +49,7 @@ function actionHeaderButtonEvent(){
     $(' .action-place').actionSideNav({
         'width':'324px',
         'position':'right',
-        'closeButton':$('.action-side-nav#action-side-nav-place .action-side-nav-header nav .nav-wrapper .action-back-button'),
+        'closeButton':$('.action-side-nav#action-side-nav-place .action-back-button'),
         'ready':function(){
             $('.action-header-nav .nav-wrapper .action-search').hide();
         },
@@ -115,7 +91,7 @@ function actionMobileEvent(){
         'width':'100%',
         'position':'right',
         'bodyHidden':true,
-        'closeButton':$('.action-mobile-side-search-page .action-side-nav-header nav .nav-wrapper button.action-back-button'),
+        'closeButton':$('.action-side-nav#action-side-nav-mobile-search .action-back-button'),
         
     });
 }
@@ -203,11 +179,6 @@ function actionDesktopButtonHoverEvent(){
                         
                     $this.on(options.event,function(){
                    
-                        // if(options.position='left'){
-                        //      setObj.left=0;
-                        // }else if(options.position='right'){
-                        //     setObj.right=0;
-                        // }
                         setObj.left=='-105%'?setObj.left=0:setObj.right=0;
                         
                         setSideNavObj($this); 
@@ -241,18 +212,7 @@ function actionDesktopButtonHoverEvent(){
                     
                     if(options.closeButton!=null){
                         options.closeButton.on('click',function(){
-                           // console.log(setObj.left?setObj.left:setObj.right);
-                           //var temp=(setObj.position='left'?setObj.position='left':setObj.position='right');
-                           //console.log(temp);
-                           //options.position='left'?setObj.left='-105%':setObj.right='-105%'
-                            //setObj.left?setObj.left='-105%':setObj.right='-105%';
-                            
-                            
-                            // if(options.position='left'){
-                            //     setObj.left='-105%';
-                            // }else if(options.position='right'){
-                            //     setObj.right='-105%'
-                            // }
+                          
                             setObj.left==0?setObj.left='-105%':setObj.right='-105%';
                             
                             setSideNavObj($this); 
@@ -266,10 +226,6 @@ function actionDesktopButtonHoverEvent(){
                                 $('.action-drag-target').css(setDragTarget);
                                 $('.action-mask').remove();
                             }
-                            
-                            // if(options.mask==true&&$('.action-drag-target')){
-                            //     $('.action-mask').remove();
-                            // }
                             
                             if($.isFunction(options.complete)){
                             options.complete.apply(this);
