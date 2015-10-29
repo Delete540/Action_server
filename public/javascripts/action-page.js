@@ -242,6 +242,9 @@ function actionDesktopButtonHoverEvent(){
                     
                         $('.action-mask').remove();
                     
+                        if(options.bodyHidden==true){
+                            $('body').removeAttr('style');
+                        }
                         
                         setObj.left==0?setObj.left='-105%':setObj.right='-105%';
                         
