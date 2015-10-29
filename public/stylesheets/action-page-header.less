@@ -136,8 +136,13 @@
 .action-header-place-button-modal .modal-footer ul.collection li a i.material-icons{
 	color: @action-style-color-black;
 }
+.action-side-nav#action-side-nav-left{
+	width: 240px;
+}
+
 .action-side-nav#action-side-nav-place{
 	width: 30%;
+	right:-105%;
 }
 .action-mobile-side-search-page#action-side-nav-mobile-search{
 	width: 100%;
@@ -166,10 +171,13 @@
 
 
 
-
+.action-side-nav .action-side-nav-header{
+	position: fixed;
+	width:100%;
+}
 .action-side-nav .action-side-nav-header nav{
 	box-shadow: none;
-	position: fixed;
+	
 	z-index: 999;
 	color:@action-style-color-black;
 }
@@ -194,4 +202,7 @@
 		border-right: none;
 		border-bottom: 1px solid @action-style-color-default;
     	box-shadow: 0 1px 0 0 @action-style-color-default;
+}
+.action-side-nav .action-side-nav-header nav .nav-wrapper .action-search-button{
+		margin: 0 -@action-button-size/2-2 0 0;
 }

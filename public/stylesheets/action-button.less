@@ -2,7 +2,6 @@
 @action-button-size:48px;
 .action-search-button,
 .action-back-button,
-//.action-close-button,
 .action-header-button,
 .action-button-default{
 	background-color: @action-style-color-default;
@@ -27,4 +26,15 @@
     color: @action-style-color-black;
     position: fixed;
     right: 24px;
+}
+.action-back-button{
+		margin-left: -@action-button-size/2;
+}
+
+.action-search-button .material-icons,
+.action-back-button .material-icons,
+.action-header-button .material-icons,
+.action-button-default .material-icons{
+    font-size: @action-button-size/2;
+    line-height: @action-button-size;
 }

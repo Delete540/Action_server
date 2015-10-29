@@ -53,9 +53,28 @@ function actionHeaderButtonEvent(){
     //   complete: function() { alert('Closed'); } // Callback for Modal close
     }
   );
-    
+    $(' .action-place').actionSideNav({
+        'width':'324px',
+        'position':'right',
+        'closeButton':$('.action-side-nav#action-side-nav-place .action-side-nav-header nav .nav-wrapper .action-back-button'),
+        'before':function(){
+            $('.action-header-nav .nav-wrapper .action-search').hide();
+        },
+        'after':function(){
+            $('.action-header-nav .nav-wrapper .action-search').show();
+        }
+    });
    
-    
+    //'callback':function(){
+           // $('.action-header-nav .nav-wrapper .action-search').hide();
+           //console.log($('.action-side-nav#action-side-nav-place').attr('style'));
+           //$('.action-header-nav .nav-wrapper .action-search').show();
+        //    if($('.action-side-nav#action-side-nav-place').attr('style')==0){
+        //        $('.action-header-nav .nav-wrapper .action-search').hide();
+        //    }else{
+        //        $('.action-header-nav .nav-wrapper .action-search').show();
+        //    }
+        //}
 }
 
 function actionScrollEvent(){
@@ -117,13 +136,160 @@ function actionDesktopButtonHoverEvent(){
 }
 
 
-$.fn.actionClickEvent=function(before,after,obj){
-    return this.click(function(){
-        obj.addClass(before).removeClass(after);
-    });
-};    
+
 
 
 (function($){
+    
+    var sideNavmethod = {
+        
+        init:function(opts,callback){
+            
+            var defaults ={
+                'width':240,
+                'animation':'easy',
+                'event':'click',
+                'time':.6,
+                'dragTarget':true,
+                'mask':true,
+                'maskType':'black',
+                'position':'left',
+                'bodyHidden':false,
+                'closeButton':null,
+                'before':null,
+                'after':null
+            };
+            
+            var options =  $.extend(defaults,opts || {});
+            
+            var setObj={
+                'width':options.width,
+                [options.position]: '-105%',
+                'overflow-y': 'auto'
+            }
+            
+            var setSideNavObj = function(obj){
+                //console.log(obj.attr('action-data'));
+               
+                //$('#'+obj.attr('action-data'))
+               
+                    
+
+                    $('#'+obj.attr('action-data')).css(setObj)
+                                   .find('.action-side-nav-header').css('width',options.width);
+                 
+            }
+            
+            return this.each(function () {
+                var $this=$(this);
+                      
+                try {
+                   
+                   
+                   
+                    setSideNavObj($this); 
+                        
+                    $this.on(options.event,function(){
+                    //console.log(setObj.left?setObj.left:setObj.right);
+                    //setSideNavObj($this); 
+                   
+                        setObj.left?setObj.left=0:setObj.right=0;
+                        
+                        setSideNavObj($this); 
+                        
+                        if(options.bodyHidden==true){
+                            $('body').css('overflow','hidden');
+                        }else{
+                            $('body').removeAttr('style');
+                        }
+                        
+                        if($.isFunction(options.before)){
+                           options.before.apply(this);
+                        }
+                    
+                    });
+                    options.closeButton.on('click',function(){
+                        setObj.left?setObj.left='-105%':setObj.right='-105%';
+                        setSideNavObj($this); 
+                        //console.log($this);
+                        //$('#'+$this.attr('action-data')).css(setObj);
+                        
+                        if($.isFunction(options.after)){
+                           options.after.apply(this);
+                        }
+                       
+                    });    
+                    //console.log(flag);    
+                   
+                    
+                } catch (e) {
+                    console.log(e.message);
+                }    
+                
+                
+            });
+            
+        },
+        
+        top:function(){
+            
+        },
+        
+        bottom:function(){
+            
+        },
+        
+        left:function(){
+            
+        },
+        
+        right:function(){
+            
+        },
+         show:function(){
+             
+         },
+         
+         hide:function(){
+             
+         },
+        
+    };
+    
+    var scrollEventMethod = {
+        
+    }
+    
+    
+    
+    $.fn.actionSideNav = function(method){
+        
+         // 方法调用
+        if (sideNavmethod[method]) {
+            return sideNavmethod[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return sideNavmethod.init.apply(this, arguments);
+        } else {
+            $.error('Method' + method + 'does not exist on jQuery.actionEvent');
+        }
+        
+    };
+    
+    $.fn.actionScrollEvent = function(method){
+        
+         // 方法调用
+        if (scrollEventMethod[method]) {
+            return scrollEventMethod[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return scrollEventMethod.init.apply(this, arguments);
+        } else {
+            $.error('Method' + method + 'does not exist on jQuery.actionEvent');
+        }
+        
+    };
+    
+    var sideInit
+    
+    
     
 })(jQuery);
