@@ -30,7 +30,6 @@
     "finalhandler": "^0.4.0",
     "fresh": "^0.3.0",
     "hooks-fixed": "^1.0.1",
-    "jade": "~1.6.0",
     "jwt-simple": "^0.3.0",
     "kareem": "^1.0.1",
     "less": "^2.5.1",
