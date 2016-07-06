@@ -66,7 +66,12 @@ app.use('/index/admin',indexAdmin);
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
-    next(err);
+    // next(err);
+    res.render('error', {
+            message: err.message,
+            error: err,
+            title:"404,找不到东西啦!"
+        });
 });
 
 //run task
@@ -82,7 +87,8 @@ if (app.get('env') === 'development') {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
-            error: err
+            error: err,
+            title:"抱歉，出了点问题!"
         });
     });
 }
@@ -93,7 +99,8 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
-        error: {}
+        error: {},
+        title:"抱歉，出了点问题!"
     });
 });
 
