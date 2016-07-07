@@ -5,6 +5,9 @@
 // Colors
 //---------
 
+//## Alpha 0
+@alpha-0:           rgba(0,0,0,0);
+
 //## White
 @white-default:     #fff;
 @white-darken-1:    #e9edf0;
@@ -12,6 +15,8 @@
 //## Gray
 @gray-default:      #1a1a1a;
 @gray-base:         #000;
+@gray-rgb0:         rgba(0,0,0,0.12);
+@gray-rgb1:         rgba(0,0,0,0.16);  
 
 //## Blue
 @blue-default:      #1E88E5;
@@ -56,6 +61,15 @@
 
 //## Height 64px
 @height-64:     @base-size * 8;
+
+//## Height 256px
+@height-256:    @base-size * 32;
+
+
+//Box shadow
+
+//## default
+@default-box-shadow: 0 2px 5px 0 @gray-rgb1,0 2px 10px 0 @gray-rgb0;
 
 
 
