@@ -92,4 +92,7 @@
 @full-width:        100%;
 
 //## Middle
-@middle-width:      80%;
+@middle-width:      calc(~"@{full-width} - "(@side-width * 2));
+
+//### Side
+@side-width:        190px;

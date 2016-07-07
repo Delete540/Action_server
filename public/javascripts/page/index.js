@@ -58,10 +58,10 @@ function actionHeaderButtonEvent(){
 
 function actionScrollEvent(){
     
-    if ($(window).scrollTop() > ($("#actionHeader").height()-$("#actionHeaderNav").height())) {           
-        $("#actionHeaderNav").addClass('action-hover');
+    if ($(window).scrollTop() > ($(".action-header").height()-$(".action-nav").height())) {           
+        $(".action-nav").addClass('action-hover');
     }else{
-        $('#actionHeaderNav').removeClass('action-hover');
+        $('.action-nav').removeClass('action-hover');
     }
     
     
