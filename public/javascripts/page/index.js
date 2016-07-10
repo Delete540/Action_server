@@ -57,11 +57,13 @@ function actionHeaderButtonEvent(){
 }
 
 function actionScrollEvent(){
-    
-    if ($(window).scrollTop() > ($(".action-header").height()-$(".action-nav").height())) {           
-        $(".action-nav").addClass('action-hover');
+    $(".action-nav .u-left >ul li.logo").hide();
+    if ($(window).scrollTop() > ($(".action-header").height()-$(".action-nav").height())) {            
+        $(".action-nav").addClass('active');
+        $(".action-nav .u-left >ul li.logo").show();
     }else{
-        $('.action-nav').removeClass('action-hover');
+        $('.action-nav').removeClass('active');
+        $(".action-nav .u-left >ul li.logo").hide();
     }
     
     

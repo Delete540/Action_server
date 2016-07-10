@@ -2,26 +2,75 @@
     height: @height-64;
     box-shadow: none;
     position: fixed;
+    z-index: @zIndex-2;
+    div ul li{
+        height: @height-64;
+        line-height: @base-size * 6;
+    }
+
+    >div.u-container{
+        display: inline-block;
+        text-align: center;
+        ul li{
+            padding: @base-size;
+        }
+        ul.u-left li{
+            a{
+                padding: 0 @base-size;
+            }
+            a.active{
+                border-bottom:(@base-size / 2) @blue-light-1 solid;
+            }
+        }
+        ul.u-right li{
+            width: @base-size * 8;
+            a{
+                padding:@base-size;
+                width: @base-size * 6;
+                line-height: @base-size * 6;
+            }
+        }
+    }
+
+    >div.u-left{
+        width: @side-width;
+    }
+
+    >div.u-right{
+        width: @side-width;
+    
+    }
+
+    >div.u-left,
+    >div.u-right{
+        height: inherit;
+        ul li{
+            padding: @base-size;
+        }
+        ul li.hamburger{
+            width: @base-size * 8;
+        }
+        ul li.logo{
+            display: none;
+            h5{
+                margin: auto;
+                line-height: @base-size * 6;
+            }
+        }
+    }
+
+    >div.u-right{
+        ul li{
+            float: @right;
+        }
+    }
+
 }
-.action-nav.action-hover{
+.action-nav.active{
     box-shadow: @default-box-shadow;
     background-color:@blue-default;
 }
 
-.action-nav > div.u-container{
-    display: inline-block;
-    text-align: center;
-    height: inherit;
-}
 
-.action-nav > div.u-left{
-    width: @side-width;
-}
-.action-nav > div.u-right{
-    width: @side-width;
-    
-}
-.action-nav > div.u-left,
-.action-nav > div.u-right{
-    height: inherit;
-}
+
+

@@ -1,9 +1,30 @@
 @media only screen and (max-width:(@screen-sm)){
-    .action-nav > div.u-container{
+    .hide-sm{
         display: none !important;
     }
-    .action-nav > div.u-left,
-    .action-nav > div.u-right{
+
+    .u-container{
+        width: @middle-mobile-width;
+    }
+
+    .action-nav > div.u-left{
         width: @base-size * 8 !important;
     }
+
+    .action-nav > div.u-right{
+        width: @base-size * 16 !important;
+    }
+
 }
+@media only screen and (min-width:(@screen-sm + 1)){
+    .show-sm{
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:(@screen-xs)){
+    .action-title{
+        margin: 38.2% auto !important;
+    }
+}
+
