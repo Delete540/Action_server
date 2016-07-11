@@ -34,8 +34,7 @@
         ul.u-right{
             li{
                 a{
-                    padding:@base-size;
-                    line-height: @base-size * 6;
+                    
                 }
             }
             
@@ -44,9 +43,36 @@
             li{
                 width: @base-size * 8;
                 a{
+                    padding:@base-size;
+                    line-height: @base-size * 6;
                     width: @base-size * 6;            
                 }
             }
+        }
+        ul.u-right.not-signed{
+            li{
+                a{
+                    margin: (@base-size /2) 0 0 0;
+                    padding:@base-size (@base-size * 2);
+                    line-height: @base-size * 3;
+                }
+            }
+
+            >li.login{
+                a{
+                    &:hover{
+                        background-color: @blue-light-1;
+                    }
+                }
+            }
+
+            >li.join{
+                a{
+                    &:hover{
+                        background-color: @pink-default;
+                    }
+                }
+            } 
         }
     }
 
@@ -64,6 +90,10 @@
         ul{
             li{
                 padding: @base-size;
+                a.b-btn{
+                    height: @base-size*6;
+                    line-height: @base-size * 4;
+                }
             }
         }
         ul{
