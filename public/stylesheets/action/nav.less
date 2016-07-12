@@ -2,7 +2,7 @@
     height: @height-64;
     box-shadow: none;
     position: fixed;
-    z-index: @zIndex-2;
+    z-index: @zIndex-3;
     div{
         ul{
             li{
@@ -99,6 +99,9 @@
         ul{
             li.hamburger{
                 width: @base-size * 8;
+                a{
+                    margin: 0 0 0 -(@base-size /2 );
+                }
             }
         }
         ul{
@@ -116,6 +119,9 @@
         ul{
             li{
                 float: @right;
+                a{
+                    margin: 0 -(@base-size /2 ) 0 0;
+                }
             }
         }
     }
