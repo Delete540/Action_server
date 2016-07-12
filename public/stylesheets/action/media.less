@@ -16,16 +16,22 @@
     }
 
     div.action-left-sidenav.se-sidenav,
-    div.action-left-sidenav.se-sidenav{
+    div.action-right-sidenav.se-sidenav{
         width: @full-width;
     }
 
     div.action-left-sidenav.se-sidenav{
         left:-(@full-width) !important;
     }
+    div.action-left-sidenav.se-sidenav.active{
+        left:0 !important;
+    }
 
     div.action-right-sidenav.se-sidenav{
         right:-(@full-width) !important;
+    }
+    div.action-right-sidenav.se-sidenav.active{
+        right:0 !important;
     }
 
 }
