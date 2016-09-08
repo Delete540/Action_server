@@ -26,7 +26,6 @@ function actionHeaderButtonEvent(){
     });
     
     
-    
     $('.action-header-mobile-add-button').click(function(){
         $('.action-mobile-nav-dropdown').css({
             'margin-right':'-32px'
