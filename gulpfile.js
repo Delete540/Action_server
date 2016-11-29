@@ -10,5 +10,5 @@ gulp.task('buildLess', function () {
 });
 
 gulp.task('buildWatch', function () {
-    gulp.watch('public/**/*.less', ['buildLess']); //当所有less文件发生改变时，调用testLess任务
+    gulp.watch('public/stylesheets/**/*.less', ['buildLess']); //当所有less文件发生改变时，调用testLess任务
 });
