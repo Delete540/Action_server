@@ -1,0 +1,101 @@
+// Grid System
+
+// Container
+.container,.container-full{
+  position:                       relative;
+  margin:                         0 auto;
+}
+
+.container{
+  width:                          calc(~'100% - ( @{base-size} * 2 )');
+}
+
+.container-full{
+  widows:                         100%;
+}
+
+// Init grid function
+
+// Init row
+.init-grid(@flex-wrap,@align-content){
+  .row{
+    display:                      flex;
+    display:                      -webkit-flex;
+    flex-wrap:                    @flex-wrap;
+    -webkit-flex-wrap:            @flex-wrap;
+		align-content:                @align-content;
+    -webkit-align-content:        @align-content;
+    
+    .col{
+      padding:                    ~'@{base}px';
+      display:                    block;
+    }
+  }
+  .create-grid-columns();
+}
+
+// Init grid
+.init-grid(wrap,flex-start);
+
+// Set columns flex order 0
+.set-default-columns-order{
+  .col{
+    order:                        0;
+    -webkit-order:                0;
+  }
+}
+
+// Init smail screen grid
+@media @smail-screen{
+    .row.small-full{
+      flex-flow:                  column;
+      -webkit-flex-flow:          column;
+      flex-direction:             column;
+
+      .set-default-columns-order();
+    }
+    .col.s-show{
+      display:                    block @default;
+    }
+    .col.s-hide{
+      display:                    none @default;
+    }
+}
+
+// Init medium screen grid
+@media @medium-screen{
+    .row.m-full{
+      flex-flow:                  column;
+      -webkit-flex-flow:          column;
+      flex-direction:             column;
+      -webkit-flex-direction:     column;
+
+      .set-default-columns-order();
+    }
+    .col.m-show{
+      display:                    block @default;
+    }
+    .col.m-hide{
+      display:                    none @default;
+    }
+}
+
+// Init large screen grid
+@media @large-screen{
+  .col.l-show{
+    display:                      block @default;
+  }
+  .col.l-hide{
+    display:                      none @default;
+  }
+}
+
+// Init desktop screen grid
+@media @desktop-screen{
+  .col.d-show{
+    display:                      block @default;
+  }
+  .col.d-hide{
+    display:                      none @default;
+  }
+}

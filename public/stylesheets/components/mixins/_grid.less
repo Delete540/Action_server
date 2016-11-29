@@ -1,0 +1,40 @@
+// Grid utils function
+
+// Loop create columns function
+.create-grid-columns(){
+  .loop(@counter) when (@counter > 0) {
+    .loop((@counter - 1));
+    @item:(@column-num - @counter + 1);
+
+    // Set column
+    .col.col@{item}{
+      flex:                   @item 0 auto;
+      -webkit-flex:           @item 0 auto;
+    }
+
+    // Offset column
+    .offset-@{item}{
+      margin-left:            calc(~'100% / @{counter}');
+    }
+
+    // Set column order
+    .order-@{item}{
+      order:                  @item;
+      -webkit-order:          @item;
+    }
+
+    // Set column flex-grow  
+    .grow-@{item}{
+      flex:                   @item 0 auto @default;
+      -webkit-flex:           @item 0 auto @default;
+    }
+
+    // Set column flex-shrink  
+    .shrink-@{item}{
+      flex:                   0 @item auto @default;
+      -webkit-flex:           0 @item auto @default;
+    }
+
+  }
+  .loop(@column-num);
+}
