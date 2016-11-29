@@ -28,6 +28,7 @@ node_modules
 #bower install public lib for JavaScript/css
 #please install JavaScript/css lib to public/lib/...
 public/lib/*
+public/build/*
 
 # Users Environment Variables
 .bowerrc

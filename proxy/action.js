@@ -12,7 +12,7 @@ var Fork=require('../module').Fork;
  * 		//这里传入的回调函数的参数一律是
  * 		callback(err,results)
  * 		//results是从mongodb中取得的结果集
- */
+ */   
 
 /**
  * 获取最近一个新增Acion的时间
