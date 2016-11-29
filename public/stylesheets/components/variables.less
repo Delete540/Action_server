@@ -1,0 +1,163 @@
+// Variables
+//-----------------------
+
+// 0. Base
+//---------
+
+// base
+@base:                                  8;
+
+// column number
+@column-num:                            12;
+
+// color number
+@color-num:                             4;
+
+// default
+@default:                               ~'!important';
+
+// base size
+@base-size:                             ~'@{base}px';
+
+// default size
+@default-size:                          0;
+
+// font base size
+@font-base-size:                        14px;
+
+// full
+@base-full:                             100%;
+
+// color type
+@l-blue:                                l-blue; 
+@d-blue:                                d-blue;
+@l-blue:                                l-blue; 
+@d-blue:                                d-blue;
+@l-blue:                                l-blue; 
+@d-blue:                                d-blue;
+@l-blue:                                l-blue; 
+@d-blue:                                d-blue;
+@l-blue:                                l-blue; 
+@d-blue:                                d-blue;
+@l-blue:                                l-blue; 
+@d-blue:                                d-blue;
+
+
+// 1. Box
+//---------
+
+// Box shadow
+
+// default
+@default-box-shadow:                    0 2px 5px 0 @gray-rgb1,0 2px 10px 0 @gray-rgb0;
+
+
+
+// 2. Colors
+//---------
+
+// Alpha 
+@alpha-0:                             rgba(0,0,0,0);
+
+// White
+@white-default:                       #fff;
+@white-darken-1:                      #e9edf0;
+
+// Gray
+@gray-default:                        #1a1a1a;
+@gray-base:                           #000;
+@gray-rgb0:                           rgba(0,0,0,0.12);
+@gray-rgb1:                           rgba(0,0,0,0.16);  
+
+// Blue
+@blue-default:                        #2196f3;
+
+
+// pink
+@pink-default:                        #ff4081;  
+
+
+
+// 3. Font
+//---------
+
+//Font type
+// '微软雅黑'
+@font-family-yahei:                       '微软雅黑';
+
+// '宋体'
+@font-family-songti:                      '宋体';
+
+// 'Merriweather'
+@font-family-Merriweather:                'Merriweather';
+
+// 'Hiragino Sans GB'
+@font-family-Hiragino_Sans_GB:            'Hiragino Sans GB';
+
+// 'Microsoft Yahei'
+@font-family-Microsoft_Yahei:             'Microsoft Yahei';
+
+// arial
+@font-family-arial:                       arial;
+
+// \5b8b\4f53
+@font-family-5b8b-4f53:                   \5b8b\4f53;
+
+// Tahoma
+@font-family-Tahoma:                      Tahoma;
+
+// Arial
+@font-family-Arial:                       Arial;
+
+// Helvetica
+@font-family-Helvetica:                   Helvetica;
+
+// STHeiti
+@font-family-STHeiti:                     STHeiti;
+
+
+
+// 4. Media Query Ranges
+@smail-screen-max:                      600px; 
+@medium-screen-min:                     601px;
+@medium-screen-max:                     992px;
+@large-screen-min:                      993px;
+@large-screen-max:                      1200px;
+@desktop-screen-min:                    1201px;
+
+@smail-screen:                          ~'only screen and (max-width :@{smail-screen-max})';
+@medium-screen:                         ~'only screen and (min-width : @{medium-screen-min}) and (max-width : @{medium-screen-max})';
+@large-screen:                          ~'only screen and (min-width : @{large-screen-min}) and (max-width : @{large-screen-max})';
+@desktop-screen:                        ~'only screen and (min-width :@{desktop-screen-min})';
+
+
+
+// 5. Nav
+//---------
+
+// Nav Height
+@nav-default-height:                   calc(~'@{base} * 8px');
+
+
+
+// 6. Transition
+
+// default
+@transition-default:                    all .3s ease-out;
+
+
+
+// 7. Z-index
+
+// z-index top
+@zIndex-top:                            20;
+
+// z-index level 2
+@zIndex-2:                              @zIndex-top - 1;
+
+// z-index level 3
+@zIndex-3:                              @zIndex-top - 2;
+
+// z-index bottom
+@zIndex-bottom:                         -1;
+
