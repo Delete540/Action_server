@@ -4,11 +4,11 @@
     <title><%=title%></title>
     <% include layout.html %>
   </head>
-<body ng-app="Action">
-  <% include header.html %>
-  <% include sidenav.html %>
-  <div id="actionContent" class="action-content u-container">1111</div>
+  <body ng-app="Action">
+    <% include components/header.html %>
+    <% include components/drawer.html %>
+    <div id="actionContent" class="action-content u-container">1111</div>
 
-  <% include footer.html%>
-</body>
+    <% include footer.html%>
+  </body>
 </html>
