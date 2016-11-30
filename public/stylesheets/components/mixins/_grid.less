@@ -10,6 +10,8 @@
     .col.col-@{item}{
       flex:                   @item 0 auto;
       -webkit-flex:           @item 0 auto;
+      flex-basis:             calc(~'100% / @{counter}');
+      -webkit-flex-basis:     calc(~'100% / @{counter}');
     }
 
     // Offset column

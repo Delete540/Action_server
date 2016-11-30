@@ -6,13 +6,7 @@
   margin:                         0 auto;
 }
 
-.container{
-  width:                          calc(~'100% - ( @{base-size} * 2 )');
-}
 
-.container-full{
-  widows:                         100%;
-}
 
 // Init grid function
 
@@ -26,9 +20,22 @@
 		align-content:                @align-content;
     -webkit-align-content:        @align-content;
     
+    .container,
+    .container-full,
     .col{
       padding:                    ~'@{base}px';
       display:                    block;
+    }
+
+    .container{
+      flex-basis:                 calc(~'100% - 384px');
+      -webkit-flex-basis:         calc(~'100% - 384px');
+      max-width:                  calc(~'100% - 512px');
+    }
+
+    .container-full{
+      flex-basis:                 100%;
+      -webkit-flex-basis:         100%;
     }
   }
   .create-grid-columns();
@@ -47,6 +54,14 @@
 
 // Init smail screen grid
 @media @smail-screen{
+    .row{
+      .container{
+        flex-basis:                 auto;
+        -webkit-flex-basis:         auto;
+        margin:                     initial;
+        max-width:                  initial;
+      }
+    }
     .row.small-full{
       flex-flow:                  column;
       -webkit-flex-flow:          column;
@@ -64,6 +79,14 @@
 
 // Init medium screen grid
 @media @medium-screen{
+    .row{
+      .container{
+        flex-basis:                 auto;
+        -webkit-flex-basis:         auto;
+        margin:                     initial;
+        max-width:                  initial;
+      }
+    }
     .row.m-full{
       flex-flow:                  column;
       -webkit-flex-flow:          column;
