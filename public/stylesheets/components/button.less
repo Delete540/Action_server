@@ -16,7 +16,7 @@ a.btn-large{
     text-align:                     center;
     vertical-align:                 initial;
     letter-spacing:                 .5px;
-    transition:                     .2s ease-out;
+    transition:                     @transition-cubic-bezier;
     text-transform:                 uppercase;
     text-decoration:                none;
     cursor:                         pointer;
@@ -26,7 +26,7 @@ a.btn-large{
     vertical-align:                 middle;
     -webkit-tap-highlight-color:    transparent;
     &:hover{
-        background-color:           @gray-rgb0;
+        background-color:           @gray-rgb0 @default;
     }
     i{
         font-size:                  @btn-font-size;
@@ -68,7 +68,7 @@ a.btn-large{
 
 }
 .btn.square{
-    widows:                         @btn-default-size;
+    width:                         @btn-default-size;
 }
 
 // small button
