@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node bin/www",
     "dev": "supervisor --ignore public bin/www"
+    
   },
   "dependencies": {
     "accepts": "^1.2.9",
