@@ -1,10 +1,92 @@
-.btn{
-    /*padding: @base-size * (3/2);
+// Button
+
+// init button
+button.btn,
+button.btn-min,
+button.btn-large,
+a.btn,
+a.btn-min,
+a.btn-large{
+    outline: none;
+}
+
+.btn,
+.btn-min,
+.btn-large{
     text-align: center;
     vertical-align:initial;
-    height: 36px;
-    line-height: @base-size * 3;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: @radius-default;
+    padding:@btn-padding;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
     &:hover{
-        background-color: initial;
-    }*/
+        background-color: @gray-rgb0;
+    }
+    i{
+        font-size:              @btn-font-size;
+        line-height:            inherit;
+       
+    }
+    i.left{
+         margin-right:           @base + 7px;
+    }
+    i.right{
+         margin-left:            @base + 7px;
+    }
+}
+// set circle button
+.btn.square.circle,
+.btn-min.square.circle,
+.btn-large.square.circle{
+    border-radius: @radius-circle;
+}
+
+// set circle button
+.btn.square,
+.btn-min.square,
+.btn-large.square{
+    padding: 0;
+    i{
+        width:      inherit;
+        display:    inline-block;
+        text-align: center;
+        color:      @white-default;
+    }
+}
+
+// default button
+.btn{
+    height: @btn-default-size;
+    line-height: @btn-default-size;
+    font-size: @btn-font-size;
+
+}
+.btn.square{
+    width:@btn-default-size;
+}
+
+// small button
+.btn-min{
+    height: @btn-min-size;
+    line-height: @btn-min-size;
+    font-size: @btn-font-small-size;
+}
+.btn-min.square{
+    width:@btn-min-size;;
+}
+
+// large button
+.btn-large{
+    height: @btn-large-size;
+    line-height: @btn-large-size;
+    font-size: @btn-font-large-size;
+}
+.btn-large.square{
+    width:@btn-large-size;
 }

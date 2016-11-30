@@ -23,13 +23,20 @@
 @default-size:                          0;
 
 // font base size
-@font-base-size:                        14px;
+@font-base-size:                        16px;
 
 // full
-@base-full:                             100%;
+@full:                                  100%;
+
+// radius
+@radius-circle:                         50%;
+@radius-default:                        2px;
+
 
 // color type
-@l-blue:                                l-blue; 
+@l-blue:                                light-blue; 
+@d-blue:                                dark-blue;
+/*@l-blue:                                l-blue; 
 @d-blue:                                d-blue;
 @l-blue:                                l-blue; 
 @d-blue:                                d-blue;
@@ -38,9 +45,7 @@
 @l-blue:                                l-blue; 
 @d-blue:                                d-blue;
 @l-blue:                                l-blue; 
-@d-blue:                                d-blue;
-@l-blue:                                l-blue; 
-@d-blue:                                d-blue;
+@d-blue:                                d-blue;*/
 
 
 // 1. Box
@@ -58,6 +63,9 @@
 
 // Alpha 
 @alpha-0:                             rgba(0,0,0,0);
+
+// Dark
+@dark-default:                        rgba(0,0,0,0.87);
 
 // White
 @white-default:                       #fff;
@@ -115,9 +123,17 @@
 // STHeiti
 @font-family-STHeiti:                     STHeiti;
 
+// font size
 
+
+
+// font line height
+@default-line-height:                     @base * 3px;
 
 // 4. Media Query Ranges
+//---------
+
+// screen width
 @smail-screen-max:                      600px; 
 @medium-screen-min:                     601px;
 @medium-screen-max:                     992px;
@@ -125,6 +141,7 @@
 @large-screen-max:                      1200px;
 @desktop-screen-min:                    1201px;
 
+// media
 @smail-screen:                          ~'only screen and (max-width :@{smail-screen-max})';
 @medium-screen:                         ~'only screen and (min-width : @{medium-screen-min}) and (max-width : @{medium-screen-max})';
 @large-screen:                          ~'only screen and (min-width : @{large-screen-min}) and (max-width : @{large-screen-max})';
@@ -141,6 +158,7 @@
 
 
 // 6. Transition
+//---------
 
 // default
 @transition-default:                    all .3s ease-out;
@@ -148,6 +166,7 @@
 
 
 // 7. Z-index
+//---------
 
 // z-index top
 @zIndex-top:                            20;
@@ -160,4 +179,28 @@
 
 // z-index bottom
 @zIndex-bottom:                         -1;
+
+
+
+// 8. Button 
+//---------
+
+// button width
+//@btn-large:
+
+// button height
+@btn-large-size:                        @base * 7px;
+@btn-default-size:                      @base * 6px;
+@btn-min-size:                          @base * 5px;
+
+// button padding
+@btn-large-padding:                       @base * 2px;
+@btn-default-padding:                     @base * 1.5px;
+@btn-min-padding:                         @base-size;
+@btn-padding:                             0 2rem;
+
+// button font size
+@btn-font-size:                                1.3rem;
+@btn-font-large-size:                          1.6rem;
+@btn-font-small-size:                          1rem;
 

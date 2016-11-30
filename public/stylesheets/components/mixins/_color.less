@@ -2,11 +2,11 @@
   .loop(@counter) when (@counter > 0) {
     .loop((@counter - 1));
     .bc-@{color-type}@{counter}{
-      background-color: lighten(@base-color,( @counter * 10%));
+      background-color: lighten(@base-color,( @counter * 10%)) @default;
     }
 
     .fc-@{color-type}@{counter}{
-      color: lighten(@base-color,( @counter * 10%));
+      color: lighten(@base-color,( @counter * 10%)) @default;
     }
   }
   .loop(@color-num);
@@ -16,11 +16,11 @@
   .loop(@counter) when (@counter > 0) {
     .loop((@counter - 1));
     .bc-@{color-type}@{counter}{
-      background-color: darken(@base-color,( @counter * 7%));
+      background-color: darken(@base-color,( @counter * 7%)) @default;
     }
 
     .fc-@{color-type}@{counter}{
-      color: darken(@base-color,( @counter * 7%));
+      color: darken(@base-color,( @counter * 7%)) @default;
     }
   }
   .loop(@color-num);

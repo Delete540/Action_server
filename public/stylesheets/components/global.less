@@ -13,7 +13,50 @@ html {
  box-sizing:                        inherit;
 }
 
+html{
+  font-family: @font-family-Merriweather,@font-family-arial,@font-family-Hiragino_Sans_GB,@font-family-Microsoft_Yahei,@font-family-yahei,@font-family-songti,@font-family-arial,@font-family-5b8b-4f53,@font-family-Tahoma,@font-family-Arial,@font-family-Helvetica,@font-family-STHeiti,sans-serif;
+  color: @dark-default;
+  line-height:                      1.5;
+  -webkit-text-size-adjust:         @full;
+}
+
 // Init ul/li
 ul,li{
     list-style:                     none;
+}
+
+.left{
+    float: left @default;
+}
+
+.right{
+    float: right @default;
+}
+
+// Init smail screen grid
+@media @smail-screen{
+    html{
+        font-size:                  14px;
+    }
+}
+
+// Init medium screen grid
+@media @medium-screen{
+    html{
+        font-size:                  14.5px;
+    }
+}
+
+// Init large screen grid
+@media @large-screen{
+    html{
+        font-size:                  15px;
+    }
+}
+
+// Init desktop screen grid
+@media @desktop-screen{
+    html{
+        font-size:                  16px;
+    }
 }
