@@ -1,10 +1,6 @@
 // Grid System
 
-// Container
-.container,.container-full{
-  position:                       relative;
-  margin:                         0 auto;
-}
+
 
 
 
@@ -13,29 +9,38 @@
 // Init row
 .init-grid(@flex-wrap,@align-content){
   .row{
-    display:                      flex;
-    display:                      -webkit-flex;
-    flex-wrap:                    @flex-wrap;
-    -webkit-flex-wrap:            @flex-wrap;
-		align-content:                @align-content;
-    -webkit-align-content:        @align-content;
+    display:                          flex;
+    display:                          -webkit-flex;
+    flex-wrap:                        @flex-wrap;
+    -webkit-flex-wrap:                @flex-wrap;
+		align-content:                    @align-content;
+    -webkit-align-content:            @align-content;
     
     .container,
     .container-full,
     .col{
-      padding:                    ~'@{base}px';
-      display:                    block;
+      padding:                        ~'@{base}px';
+      display:                        block;
+    }
+
+    .full{
+      width:                          @full;
+    }
+
+    // Container
+    .container,.container-full{
+      position:                       relative;
+      margin:                         0 auto;
     }
 
     .container{
-      flex-basis:                 calc(~'100% - 384px');
-      -webkit-flex-basis:         calc(~'100% - 384px');
-      max-width:                  calc(~'100% - 512px');
+      flex-basis:                     calc(~'100vw / 1.5');
+      -webkit-flex-basis:             calc(~'100vw / 1.5');
     }
 
     .container-full{
-      flex-basis:                 100%;
-      -webkit-flex-basis:         100%;
+      flex-basis:                     @full;
+      -webkit-flex-basis:             @full;
     }
   }
   .create-grid-columns();
@@ -47,8 +52,8 @@
 // Set columns flex order 0
 .set-default-columns-order{
   .col{
-    order:                        0;
-    -webkit-order:                0;
+    order:                            0;
+    -webkit-order:                    0;
   }
 }
 
@@ -56,24 +61,24 @@
 @media @smail-screen{
     .row{
       .container{
-        flex-basis:                 auto;
-        -webkit-flex-basis:         auto;
-        margin:                     initial;
-        max-width:                  initial;
+        flex-basis:                   auto;
+        -webkit-flex-basis:           auto;
+        margin:                       initial;
+        max-width:                    initial;
       }
     }
     .row.small-full{
-      flex-flow:                  column;
-      -webkit-flex-flow:          column;
-      flex-direction:             column;
+      flex-flow:                      column;
+      -webkit-flex-flow:              column;
+      flex-direction:                 column;
 
       .set-default-columns-order();
     }
     .col.s-show{
-      display:                    block @default;
+      display:                        block @default;
     }
     .col.s-hide{
-      display:                    none @default;
+      display:                        none @default;
     }
 }
 
@@ -81,10 +86,10 @@
 @media @medium-screen{
     .row{
       .container{
-        flex-basis:                 auto;
-        -webkit-flex-basis:         auto;
-        margin:                     initial;
-        max-width:                  initial;
+        flex-basis:                   auto;
+        -webkit-flex-basis:           auto;
+        margin:                       initial;
+        max-width:                    initial;
       }
     }
     .row.m-full{
