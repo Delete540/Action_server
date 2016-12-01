@@ -7,16 +7,16 @@
     @item:(@column-num - @counter + 1);
 
     // Set column
-    .col.col-@{counter}{
+    .col.col-@{item}{
       flex:                   @item 0 auto;
       -webkit-flex:           @item 0 auto;
-      flex-basis:             calc(~'100vw / @{item}');
-      -webkit-flex-basis:     calc(~'100vw / @{item}');
+      flex-basis:             calc(~'100% / @{counter}');
+      -webkit-flex-basis:     calc(~'100% / @{counter}');
     }
 
     // Offset column
     .col.offset-@{counter}{
-      margin-left:            calc(~'100vw / @{item}');
+      margin-left:            calc(~'100% / @{counter}');
     }
 
     // Set column order
