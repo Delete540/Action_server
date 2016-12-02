@@ -25,6 +25,7 @@ a.btn-large{
     padding:                        @btn-padding;
     vertical-align:                 middle;
     -webkit-tap-highlight-color:    transparent;
+    margin:                         0 @base-size / 2;
     &:hover{
         background-color:           @gray-rgb0 @default;
     }
@@ -45,6 +46,9 @@ a.btn-large{
 .btn-min.square.circle,
 .btn-large.square.circle{
     border-radius:                  @radius-circle;
+    img{
+        border-radius:              @radius-circle;
+    }
 }
 
 // set circle button
@@ -65,10 +69,15 @@ a.btn-large{
     height:                         @btn-default-size;
     line-height:                    @btn-default-size;
     font-size:                      @btn-font-size;
-
+    img{
+        height:                     @btn-default-size;
+    }
 }
 .btn.square{
-    width:                         @btn-default-size;
+    width:                          @btn-default-size;
+    img{
+        width:                      @btn-default-size;
+    }
 }
 
 // small button
@@ -76,9 +85,15 @@ a.btn-large{
     height:                         @btn-min-size;
     line-height:                    @btn-min-size;
     font-size:                      @btn-font-small-size;
+    img{
+        height:                     @btn-min-size;
+    }
 }
 .btn-min.square{
-    width:                          @btn-min-size;;
+    width:                          @btn-min-size;
+    img{
+        width:                      @btn-min-size;
+    }
 }
 
 // large button
@@ -86,7 +101,13 @@ a.btn-large{
     height:                         @btn-large-size;
     line-height:                    @btn-large-size;
     font-size:                      @btn-font-large-size;
+    img{
+        height:                     @btn-large-size;
+    }
 }
 .btn-large.square{
     width:                          @btn-large-size;
+    img{
+        width:                      @btn-large-size;
+    }
 }

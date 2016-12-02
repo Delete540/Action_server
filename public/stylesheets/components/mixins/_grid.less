@@ -37,6 +37,15 @@
       -webkit-flex:           0 @item auto @default;
     }
 
+    // Set left offset
+    .margin-left-@{item}{
+      margin-left: @base-size * @item;
+    }
+
+    // Set right offset
+    .margin-right-@{item}{
+      margin-right: @base-size * @item;
+    }
   }
   .loop(@column-num);
 }
