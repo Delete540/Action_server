@@ -57,73 +57,125 @@
   }
 }
 
+.show{
+  display:                        block @default;
+}
+
+.hide{
+  display:                        none @default;
+}
+
 // Init smail screen grid
 @media @smail-screen{
-    .row{
-      .container{
-        flex-basis:                   auto;
-        -webkit-flex-basis:           auto;
-        margin:                       initial;
-        max-width:                    initial;
-      }
+  .row{
+    .container{
+      flex-basis:                   auto;
+      -webkit-flex-basis:           auto;
+      margin:                       initial;
+      max-width:                    initial;
     }
-    .row.small-full{
-      flex-flow:                      column;
-      -webkit-flex-flow:              column;
-      flex-direction:                 column;
+  }
+  .row.small-full{
+    flex-flow:                      column;
+    -webkit-flex-flow:              column;
+    flex-direction:                 column;
 
-      .set-default-columns-order();
-    }
-    .col.s-show{
-      display:                        block @default;
-    }
-    .col.s-hide{
-      display:                        none @default;
-    }
+    .set-default-columns-order();
+  }
+  .s-down-show{
+    .show;
+  }
+  .s-down-hide{
+    .hide;
+  }
 }
 
 // Init medium screen grid
 @media @medium-screen{
-    .row{
-      .container{
-        flex-basis:                   auto;
-        -webkit-flex-basis:           auto;
-        margin:                       initial;
-        max-width:                    initial;
-      }
+  .row{
+    .container{
+      flex-basis:                   auto;
+      -webkit-flex-basis:           auto;
+      margin:                       initial;
+      max-width:                    initial;
     }
-    .row.m-full{
-      flex-flow:                  column;
-      -webkit-flex-flow:          column;
-      flex-direction:             column;
-      -webkit-flex-direction:     column;
+  }
+  .row.m-full{
+    flex-flow:                  column;
+    -webkit-flex-flow:          column;
+    flex-direction:             column;
+    -webkit-flex-direction:     column;
 
-      .set-default-columns-order();
-    }
-    .col.m-show{
-      display:                    block @default;
-    }
-    .col.m-hide{
-      display:                    none @default;
-    }
+    .set-default-columns-order();
+  }
+  .s-down-show{
+    .hide;
+  }
+  .s-down-hide{
+    .show;
+  }
 }
 
 // Init large screen grid
 @media @large-screen{
-  .col.l-show{
-    display:                      block @default;
+  .s-down-show{
+    .hide;
   }
-  .col.l-hide{
-    display:                      none @default;
+  .s-down-hide{
+    .show;
+  }
+  .m-down-show{
+    .hide;
+  }
+  .m-down-hide{
+    .show;
   }
 }
 
 // Init desktop screen grid
 @media @desktop-screen{
-  .col.d-show{
-    display:                      block @default;
+  .s-down-show{
+    .hide;
   }
-  .col.d-hide{
-    display:                      none @default;
+  .s-down-hide{
+    .show;
   }
+  .m-down-show{
+    .hide;
+  }
+  .m-down-hide{
+    .show;
+  }
+  .l-down-show{
+    .hide;
+  }
+  .l-down-hide{
+    .show;
+  }
+}
+
+@media @medium-screen-down{
+  .m-down-show{
+    .show;
+  }
+  .m-down-hide{
+    .hide;
+  }
+}
+
+@media @large-screen-down{
+  .l-down-show{
+    .show;
+  }
+  .l-down-hide{
+    .hide;
+  }
+}
+
+@media @smail-screen-up{
+
+}
+
+@media @medium-screen-up{
+  
 }

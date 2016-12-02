@@ -147,7 +147,11 @@
 @large-screen:                          ~'only screen and (min-width : @{large-screen-min}) and (max-width : @{large-screen-max})';
 @desktop-screen:                        ~'only screen and (min-width :@{desktop-screen-min})';
 
+@medium-screen-down:                    ~'only screen and (max-width :@{medium-screen-max})';
+@large-screen-down:                     ~'only screen and (max-width :@{large-screen-max})';
 
+@smail-screen-up:                        ~'only screen and (min-width :@{medium-screen-min})';
+@medium-screen-up:                       ~'only screen and (min-width :@{large-screen-min})';
 
 // 5. Nav
 //---------
