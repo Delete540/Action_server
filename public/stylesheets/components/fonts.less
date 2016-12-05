@@ -14,6 +14,12 @@
   font-family: 'Roboto-Light';
   font-style: normal;
   font-weight: normal;
+  src: url(../../fonts/roboto/Roboto-Light.eot); /* For IE6-8 */
+  src: local('Roboto'),
+       local('Roboto-Light'),
+       url(../../fonts/roboto/Roboto-Light.woff2) format('woff2'),
+       url(../../fonts/roboto/Roboto-Light.woff) format('woff'),
+       url(../../fonts/roboto/Roboto-Light.ttf) format('truetype');
 }
 
 .material-icons {
@@ -38,3 +44,20 @@
     -moz-font-feature-settings: 'liga';
     font-feature-settings: 'liga';
 }
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: lighter;
+}
+
+.h-font-size-set(){
+    .loop(@count) when (@count > 0) {
+        .loop((@count - 1));
+        @item:(@h-count - @count + 1);
+        h@{item}{
+            font-size: @base-size * ( @count + 1);
+        }
+    }
+    .loop(6)
+}
+
+.h-font-size-set();
