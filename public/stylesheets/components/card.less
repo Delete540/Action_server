@@ -7,16 +7,16 @@ div.card{
   display: block;
   margin: @base-size 0;
   div{
-    &.card-img,&.card-content,&.card-action{
+    &.card-img,&.card-title,&.card-content,&.card-action{
       position: relative;
     }
-    &.card-content,&.card-action{
+    &.card-content,&.card-action,&.card-title{
       padding: @base-size * 2;
-      border-top: @border-default;
     }
     &.card-img{
-      img{
+      img.back{
         width: @full;
+        min-height: @card-img-min-height;
         position: relative;
         display: block; 
         border-radius: 2px 2px 0 0;
@@ -25,16 +25,36 @@ div.card{
         bottom: 0;
         right: 0;
       }
-      .title{
+      .text{
         position: absolute;
         color: @white-darken-1;
         bottom: 0;
         left: 0;
-        padding: @base-size;
+        padding: @base-size * 2;
+        text-shadow:  @default-text-shadow;
       }
     }
     &.card-action{
-      
+        border-top: @border-default;
+    }
+    &.card-title{
+      height: 64px;
+      line-height: 36px;
+    }
+    .info{
+      font-size: 14px;
+      margin: 0 4px;
+      height: 14px;
+      line-height: 14px;
+      width: 36px;
+      text-align: center;
+      color: @white-default;
+      &.new{
+        background-color: @green-default;
+      }
+      &.hot{
+        background-color: @pink-default
+      }
     }
   }
 }

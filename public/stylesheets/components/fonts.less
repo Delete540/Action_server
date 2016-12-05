@@ -10,16 +10,26 @@
        url(../../lib/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
-@font-face {
+/*@font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   src: url(../../fonts/roboto/Roboto-Light.eot); /* For IE6-8 */
-  src: local('Roboto'),
+  /*src: local('Roboto'),
        local('Roboto-Light'),
        url(../../fonts/roboto/Roboto-Light.woff2) format('woff2'),
        url(../../fonts/roboto/Roboto-Light.woff) format('woff'),
        url(../../fonts/roboto/Roboto-Light.ttf) format('truetype');
+}*/
+
+@font-face {
+    font-family: "Roboto";
+    src: local(Roboto Light), url('@{roboto-font-path}Roboto-Light.eot');
+    src: url("@{roboto-font-path}Roboto-Light.eot?#iefix") format('embedded-opentype'),
+        url("@{roboto-font-path}Roboto-Light.woff2") format("woff2"),
+        url("@{roboto-font-path}Roboto-Light.woff") format("woff"),
+        url("@{roboto-font-path}Roboto-Light.ttf") format("truetype");
+    font-weight: 300;
 }
 
 .material-icons {

@@ -27,6 +27,9 @@
 
 @h-count:                               6;
 
+// text shadow
+@default-text-shadow:                   1px 1px 1px rgba(0,0,0,.1);
+
 // full
 @full:                                  100%;
 
@@ -85,10 +88,11 @@
 @blue-default:                        #2196f3;
 
 
-// pink
+// Pink
 @pink-default:                        #ff4081;  
 
-
+// Green
+@green-default:                       #009688;
 
 // 3. Font
 //---------
@@ -127,9 +131,13 @@
 // STHeiti
 @font-family-STHeiti:                     STHeiti;
 
-//Roboto
+// Roboto
 @Roboto:                                  Roboto;
 @Roboto-Light:                            Roboto-Light;
+
+// Roboto light path
+@roboto-font-path:                        '../../fonts/roboto/';
+
 
 // font size
 
@@ -234,11 +242,14 @@
 // 10. Card
 //---------
 
+// card img back min height
+@card-img-min-height:                     @base * 3vh;
+
 // 11. List
 //---------
 
 // list header height
-@list-header:                              @base-size * @base;
+@list-header:                             @base-size * @base;
 
 // 11. Border
 //---------

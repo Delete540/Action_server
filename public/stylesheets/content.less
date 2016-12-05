@@ -1,7 +1,43 @@
 div{
   &.action-content{
 
+    .card{
+      .card-img{
+        .top{
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          padding: 16px;
+          width: 100%;
+        }
+        .photo{
+          box-shadow: @box-shadow;
+        }
+        .star,.thumb-up{
+          position: relative;
+          .data{
+            position: absolute;
+            bottom: -28px;
+            right: 12px;
+            color: #fff;
+            font-size: 12px;
+          }
+        }
+      }
+      .card-action{
+        a{
+          height: 24px;
+          line-height: 24px;
+          i.left{
+            margin-right: @base-size + 7;
+          }
+        }
+      }
+    }
+
   }
+
+
 }
 
 @media @medium-screen-down{
