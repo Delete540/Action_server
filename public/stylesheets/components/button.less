@@ -4,10 +4,14 @@
 button.btn,
 button.btn-min,
 button.btn-large,
-a.btn,
-a.btn-min,
-a.btn-large{
-    outline:                        none;
+
+
+a{
+    &.btn,
+    &.btn-min,
+    &.btn-large{
+        outline:                        none @default;
+    }   
 }
 
 .btn,
@@ -32,37 +36,33 @@ a.btn-large{
     i{
         font-size:                  @btn-font-size;
         line-height:                inherit;
-       
+        &.left{
+            margin-right:              @base + 7px;
+        }
+        &.right{
+            margin-left:               @base + 7px;
+        }
     }
-    i.left{
-         margin-right:              @base + 7px;
-    }
-    i.right{
-         margin-left:               @base + 7px;
-    }
-}
-// set circle button
-.btn.square.circle,
-.btn-min.square.circle,
-.btn-large.square.circle{
-    border-radius:                  @radius-circle;
-    img{
-        border-radius:              @radius-circle;
+
+    // set circle button
+    &.square{
+        padding: 0;
+        i{
+            width:                      inherit;
+            display:                    inline-block;
+            text-align:                 center;
+            color:                      @white-default;
+        }
+        // set circle button
+        &.circle{
+            border-radius:              @radius-circle;
+            img{
+                border-radius:          @radius-circle;
+            }
+        }
     }
 }
 
-// set circle button
-.btn.square,
-.btn-min.square,
-.btn-large.square{
-    padding: 0;
-    i{
-        width:                      inherit;
-        display:                    inline-block;
-        text-align:                 center;
-        color:                      @white-default;
-    }
-}
 
 // default button
 .btn{
@@ -71,14 +71,13 @@ a.btn-large{
     font-size:                      @btn-font-size;
     img{
         height:                     @btn-default-size;
+        width:                      @btn-default-size;
     }
-}
-.btn.square{
-    width:                          @btn-default-size;
-    img{
+    &.square{
         width:                      @btn-default-size;
     }
 }
+
 
 // small button
 .btn-min{
@@ -87,14 +86,13 @@ a.btn-large{
     font-size:                      @btn-font-small-size;
     img{
         height:                     @btn-min-size;
+        width:                      @btn-min-size;
     }
-}
-.btn-min.square{
-    width:                          @btn-min-size;
-    img{
+    &.square{
         width:                      @btn-min-size;
     }
 }
+
 
 // large button
 .btn-large{
@@ -103,11 +101,9 @@ a.btn-large{
     font-size:                      @btn-font-large-size;
     img{
         height:                     @btn-large-size;
+        width:                      @btn-large-size;
     }
-}
-.btn-large.square{
-    width:                          @btn-large-size;
-    img{
+    &.square{
         width:                      @btn-large-size;
     }
 }
