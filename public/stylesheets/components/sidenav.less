@@ -3,20 +3,22 @@
   top: 0;
   width: @side-nav-width;
   height: @full;
-}
-.side-nav.left{
-  left: 0 @default;
-  float: initial @default;
-}
-.side-nav.right{
-  right: 0 @default;
-  float: initial @default;
-}
-.side-nav.left.hide{
-  left: ( -@full ) @default;
-  display: block @default;
-}
-.side-nav.right.hide{
-  right: ( -@full ) @default;
-  display: block @default;
+  &.left,&.right{
+    float: initial @default;
+    &.hide{
+      display: block @default;
+    }
+  }
+  &.left{
+    left: 0 @default;
+    &.hide{
+      left: ( -@full ) @default;
+    }
+  }
+  &.right{
+    right: 0 @default;
+    &.hide{
+      right: ( -@full ) @default;
+    }
+  }
 }

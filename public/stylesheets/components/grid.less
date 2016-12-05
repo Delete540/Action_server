@@ -75,12 +75,14 @@
       max-width:                    initial;
     }
   }
-  .row.small-full{
-    flex-flow:                      column;
-    -webkit-flex-flow:              column;
-    flex-direction:                 column;
+  .row{
+    &.small-full{
+      flex-flow:                      column;
+      -webkit-flex-flow:              column;
+      flex-direction:                 column;
 
-    .set-default-columns-order();
+      .set-default-columns-order();
+    }
   }
   .s-down-show{
     .show;
