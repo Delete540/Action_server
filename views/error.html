@@ -1,10 +1,27 @@
 <!-- Error -->
-<% include layout.html %>
-<% include header.html %>
+<!DOCTYPE html>
+<html>
 
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<head>
+  <title>
+    <%=title%>
+  </title>
+  <% include layout.html %>
+</head>
 
-<% include footer.html%>
+<body>
+  <h1>
+    <%= message %>
+  </h1>
+  <h2>
+    <%= error.status %>
+  </h2>
+  <pre>
+    <%= error.stack %>
+  </pre>
+
+  <% include footer.html%>
+</body>
+
+</html>
 <!-- end -->
