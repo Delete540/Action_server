@@ -1,15 +1,26 @@
 footer.footer,div.footer{
   background-color:       @blue-default;
   width:                  @full;
-
+  
   .footer-copyright{
-    height:               @base-size * 6;
-    line-height:          @base-size * 6;
-    color:                @white-light;
+    height:               @footer-copyright-height;
+    line-height:          @footer-copyright-height;
     overflow:             hidden;
     background-color:     @alpha;
-    a{
-      color:                @white-light;
+    .flex-grid;
+    &,a{
+      color:              @white-light;
     }
   }  
+}
+
+@media @medium-screen-down{
+  .footer-copyright{
+    .container{
+      flex-basis:                   @full @default;
+      -webkit-flex-basis:           @full @default;
+      margin:                       initial;
+      max-width:                    initial;
+    }
+  }
 }
