@@ -1,53 +1,51 @@
 // Grid System
 
 
+.full{
+  width:                          @full;
+}
 
+// Container
+.container,.container-full{
+  position:                       relative;
+  margin:                         0 auto;
+  padding:                        0 @base-size * 2;
+}
+.flex-grid{
+  display:                          flex;
+  display:                          -webkit-flex;
+  flex-wrap:                        wrap;
+  -webkit-flex-wrap:                wrap;
+	align-content:                    flex-start;
+  -webkit-align-content:            flex-start;
+}
+.flex-grid{
+  .container{
+    flex-basis:                     calc(~'100vw / 1.5');
+    -webkit-flex-basis:             calc(~'100vw / 1.5');
+  }
 
+  .container-full{
+    flex-basis:                     @full;
+    -webkit-flex-basis:             @full;
+  }
+}
 
 // Init grid function
 
-// Init row
-.init-grid(@flex-wrap,@align-content){
+// Init grid
+.init-grid{
   .row{
-    display:                          flex;
-    display:                          -webkit-flex;
-    flex-wrap:                        @flex-wrap;
-    -webkit-flex-wrap:                @flex-wrap;
-		align-content:                    @align-content;
-    -webkit-align-content:            @align-content;
-    
-    .container,
-    .container-full,
+    .flex-grid;
+
     .col{
       padding:                        ~'@{base}px';
       display:                        block;
     }
-
-    .full{
-      width:                          @full;
-    }
-
-    // Container
-    .container,.container-full{
-      position:                       relative;
-      margin:                         0 auto;
-    }
-
-    .container{
-      flex-basis:                     calc(~'100vw / 1.5');
-      -webkit-flex-basis:             calc(~'100vw / 1.5');
-    }
-
-    .container-full{
-      flex-basis:                     @full;
-      -webkit-flex-basis:             @full;
-    }
   }
   .create-grid-columns();
 }
-
-// Init grid
-.init-grid(wrap,flex-start);
+.init-grid();
 
 // Set columns flex order 0
 .set-default-columns-order{
@@ -67,13 +65,8 @@
 
 // Init smail screen grid
 @media @smail-screen{
-  .row{
-    .container{
-      flex-basis:                   auto;
-      -webkit-flex-basis:           auto;
-      margin:                       initial;
-      max-width:                    initial;
-    }
+  .row,.flex-grid{
+    .init-container();
   }
   .row{
     &.small-full{
@@ -94,13 +87,8 @@
 
 // Init medium screen grid
 @media @medium-screen{
-  .row{
-    .container{
-      flex-basis:                   auto;
-      -webkit-flex-basis:           auto;
-      margin:                       initial;
-      max-width:                    initial;
-    }
+  .row,.flex-grid{
+    .init-container();
   }
   .row.m-full{
     flex-flow:                  column;
