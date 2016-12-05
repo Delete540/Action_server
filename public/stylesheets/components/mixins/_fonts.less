@@ -1,0 +1,16 @@
+.h-font-size-set(@size){
+    .loop(@count) when (@count > 0) {
+        .loop((@count - 1));
+        @item:(@h-count - @count + 1);
+        h@{item}{
+            font-size: @size * ( @count + 1);
+        }
+    }
+    .loop(6)
+}
+
+.h-font-size-set(0.6rem);
+
+@media @medium-screen-down{
+  .h-font-size-set(0.4rem);
+}
