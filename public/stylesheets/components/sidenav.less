@@ -1,8 +1,21 @@
 .side-nav{
   position: fixed;
   top: 0;
+  margin: 0;
+  transform: translateX(-@full);
   width: @side-nav-width;
   height: @full;
+  height: calc(~'@{full} + 60px');
+  height: -moz-calc(@full); //Temporary Firefox Fix
+  overflow-y: auto;
+  z-index: @zIndex-2;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateX(0);
+  background-color: @white-default;
+  padding-bottom: 60px;
+  box-shadow: @box-shadow;
+  transition: @transition-cubic-bezier;
   &.left,&.right{
     float: initial @default;
     &.hide{
@@ -12,13 +25,13 @@
   &.left{
     left: 0 @default;
     &.hide{
-      left: ( -@full ) @default;
+      transform: translateX(-@full);
     }
   }
   &.right{
     right: 0 @default;
     &.hide{
-      right: ( -@full ) @default;
+      transform: translateX(@full);
     }
   }
 }
