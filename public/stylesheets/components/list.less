@@ -1,0 +1,27 @@
+ul.list{
+  width: auto;
+  height: auto;
+  position: relative;
+  li{
+    .header{
+      height: @list-header;
+      line-height: @list-header / 2;
+      padding: @base-size * 2;
+      border-top: @border-default;
+      .list-title{
+        .left;
+        i{
+          line-height: inherit;
+          margin-right: @base-size + 7;
+        }
+      }
+      .list-content{
+        .right;
+      }
+    }
+    .body{
+      padding: @base-size * 2;
+    }
+    
+  }
+}

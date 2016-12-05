@@ -1,11 +1,43 @@
 div.card{
-  width: @full;
   height: auto;
   border-radius: @radius-default;
-  padding: @base-size 0;
   background-color: @white-light;
   box-shadow: @default-box-shadow;
   position: relative;
   display: block;
   margin: @base-size 0;
+  div{
+    &.card-img,&.card-content,&.card-action{
+      position: relative;
+    }
+    &.card-content,&.card-action{
+      padding: @base-size * 2;
+      border-top: @border-default;
+    }
+    &.card-img{
+      img{
+        width: @full;
+        position: relative;
+        display: block; 
+        border-radius: 2px 2px 0 0;
+        left: 0;
+        top:0;
+        bottom: 0;
+        right: 0;
+      }
+      .title{
+        position: absolute;
+        color: @white-darken-1;
+        bottom: 0;
+        left: 0;
+        padding: @base-size;
+      }
+    }
+    &.card-action{
+      
+    }
+  }
+  
+  
+  
 }
