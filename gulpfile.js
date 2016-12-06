@@ -35,7 +35,12 @@ gulp.task('build:css', function () {
 });
 
 gulp.task('build:components.js', function () {
-    gulp.src(['public/javascripts/components/*.js'])
+    gulp.src([
+        'public/javascripts/components/index.js',
+        'public/javascripts/components/carousel.js',
+        'public/javascripts/components/waves.js'
+        
+        ])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(concat('components.js'))
@@ -46,7 +51,10 @@ gulp.task('build:components.js', function () {
 })
 
 gulp.task('build:action.js', function () {
-    gulp.src(['public/javascripts/scripts/*.js'])
+    gulp.src([
+        'public/javascripts/scripts/index.js'
+        
+        ])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(concat('action.js'))
@@ -56,8 +64,16 @@ gulp.task('build:action.js', function () {
         .pipe(gulp.dest('public/build/js'));
 })
 
-gulp.task('build:clean', function () {
-    gulp.src(['public/build'], { read: false }) //这里设置的dist表示删除dist文件夹及其下所有文件
+gulp.task('clean:style.css', function () {
+    gulp.src(['public/build/css'], { read: false }) //这里设置的dist表示删除dist文件夹及其下所有文件
+        .pipe(clean());
+});
+gulp.task('clean:action.js', function () {
+    gulp.src(['public/build/js/action.js'], { read: false }) //这里设置的dist表示删除dist文件夹及其下所有文件
+        .pipe(clean());
+});
+gulp.task('clean:components.js', function () {
+    gulp.src(['public/build/js/components.js'], { read: false }) //这里设置的dist表示删除dist文件夹及其下所有文件
         .pipe(clean());
 });
 
@@ -85,8 +101,8 @@ gulp.task('build:server', function () {
 
 });
 gulp.task('build:static', function () {
-    gulp.watch('public/stylesheets/**/*.less', ['build:clean', 'build:css']); //当所有less文件发生改变时，调用testLess任务
-    gulp.watch('public/javascripts/scripts/*.js', ['build:clean', 'build:action.js']);
-    gulp.watch('public/javascripts/components/*.js', ['build:clean', 'build:components.js']);
+    gulp.watch('public/stylesheets/**/*.less', ['clean:style.css', 'build:css']); //当所有less文件发生改变时，调用testLess任务
+    gulp.watch('public/javascripts/scripts/*.js', ['clean:action.js', 'build:action.js']);
+    gulp.watch('public/javascripts/components/*.js', ['clean:components.js', 'build:components.js']);
     
 });
