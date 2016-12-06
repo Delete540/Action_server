@@ -7,4 +7,4 @@
 
 'use script';
 
-require('backup.js');
+console.log('This is Matcha test UI components');

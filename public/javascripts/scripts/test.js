@@ -1,6 +1,6 @@
 
 //Angular & Angular Material conifg
-angular.module('Action', ['ngRoute'])
+angular.module('Action', ['ngRoute']);
 // angular.module('ActionApp', ['ngRoute','ngMaterial','ngMdIcons'])
 //Material config
 // .config(function($mdThemingProvider) {
@@ -11,7 +11,6 @@ angular.module('Action', ['ngRoute'])
 // .controller('ActionEventController',function ($scope, $timeout, $mdSidenav, $mdUtil, $log){
   
 // })
-
 //   .controller('ActionHeaderController',function(){})
   
 //   .controller('ActionHeaderNavController',function(){})

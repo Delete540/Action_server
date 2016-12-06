@@ -319,5 +319,5 @@ function actionDesktopButtonHoverEvent(){
     var $doc = document;
         find = function(){},
         findAll = function(){};
-    $doc
+    
 })
