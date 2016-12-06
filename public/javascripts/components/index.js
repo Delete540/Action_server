@@ -30,9 +30,8 @@ var Matcha = {};
       this.elements = elements;
       this.selector = selector;
       if(callback){
-        this.callback = callback;
+        this.callback = callback(this);
       }
-      
 
       return this;
     },
@@ -66,6 +65,7 @@ var Matcha = {};
           for(var i=0;i<this.elements.lenght;i++){
             this.elements[i].classList.add(className);
           }
+          return this;
         },
         removeClass: function(className){
           for(var i=0;i<this.elements.lenght;i++){
@@ -78,6 +78,19 @@ var Matcha = {};
             object.setAttribute(attr1,attr2);
           }
           return object.getAttribute(attr1);
+        },
+        css: function(object){
+          
+          if(object && typeof object == 'object'){
+            for(var i=0;i<this.elements.length;i++){
+              var style ='';
+              for(var key in object){
+                style =style+key+':'+object[key]+';';
+              }
+              this.elements[i].setAttribute('style',style);
+            }
+          }
+          return this; 
         }
       };
 

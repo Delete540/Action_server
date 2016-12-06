@@ -1,6 +1,6 @@
 
 //Angular & Angular Material conifg
-angular.module('Action', ['ngRoute']);
+//angular.module('Action', ['ngRoute']);
 // angular.module('ActionApp', ['ngRoute','ngMaterial','ngMdIcons'])
 //Material config
 // .config(function($mdThemingProvider) {
