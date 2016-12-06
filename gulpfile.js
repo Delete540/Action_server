@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     amdOptimize = require('gulp-amd-optimizer'),
     concat = require('gulp-concat'),
+    jshint=require('gulp-jshint'),
+    cached = require('gulp-cached'),
     requireConfig = {
         baseUrl: __dirname
     },
@@ -20,6 +22,7 @@ gulp.task('default', gulpsync.sync(['build:server', 'build:static']));
 
 gulp.task('build:css', function () {
     gulp.src(['public/stylesheets/style.less'])
+        .pipe(cached('build:css'))
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cssmin())
@@ -31,9 +34,25 @@ gulp.task('build:css', function () {
     //.pipe(gulp.dest('public/build/css'));
 });
 
-gulp.task('build:js', function () {
-    gulp.src(['public/javascripts/**/*.js', 'public/javascripts/*.js'])
+gulp.task('build:components.js', function () {
+    gulp.src(['public/javascripts/components/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('components.js'))
+        .pipe(sourcemaps.init())
         .pipe(uglify())
+        .pipe(sourcemaps.write('/', { addComment: false }))
+        .pipe(gulp.dest('public/build/js'));
+})
+
+gulp.task('build:action.js', function () {
+    gulp.src(['public/javascripts/scripts/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('action.js'))
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write('/', { addComment: false }))
         .pipe(gulp.dest('public/build/js'));
 })
 
@@ -67,5 +86,7 @@ gulp.task('build:server', function () {
 });
 gulp.task('build:static', function () {
     gulp.watch('public/stylesheets/**/*.less', ['build:clean', 'build:css']); //当所有less文件发生改变时，调用testLess任务
-    gulp.watch('public/javascripts/**/*.js', ['build:clean', 'build:js']);
+    gulp.watch('public/javascripts/scripts/*.js', ['build:clean', 'build:action.js']);
+    gulp.watch('public/javascripts/components/*.js', ['build:clean', 'build:components.js']);
+    
 });
