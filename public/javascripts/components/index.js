@@ -91,6 +91,18 @@ var Matcha = {};
             }
           }
           return this; 
+        },
+        click: function(callback){
+          if(callback && typeof callback === 'function'){
+            document.addEventListener('DOMContentLoaded', function(e){
+
+              document.body.addEventListener('mousedown', function(e){
+                callback();
+              }, false);
+
+            }, false);
+            
+          }
         }
       };
 

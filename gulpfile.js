@@ -38,8 +38,8 @@ gulp.task('build:components.js', function () {
     gulp.src([
         'public/javascripts/components/index.js',
         'public/javascripts/components/carousel.js',
-        'public/javascripts/components/waves.js'
-        
+        'public/javascripts/components/waves.js',
+        'public/javascripts/components/sidenav.js'
         ])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
