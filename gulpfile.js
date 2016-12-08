@@ -22,7 +22,6 @@ gulp.task('default', gulpsync.sync(['build:server', 'build:static']));
 
 gulp.task('build:css', function () {
     gulp.src(['public/stylesheets/style.less'])
-        .pipe(cached('build:css'))
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cssmin())
@@ -39,7 +38,8 @@ gulp.task('build:components.js', function () {
         'public/javascripts/components/index.js',
         'public/javascripts/components/carousel.js',
         'public/javascripts/components/waves.js',
-        'public/javascripts/components/sidenav.js'
+        'public/javascripts/components/sidenav.js',
+        'public/javascripts/scripts/cricleButton.js'
         ])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))

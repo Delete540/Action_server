@@ -94,9 +94,8 @@ var Matcha = {};
                 },
                 click: function(callback) {
                     var elements = this.elements;
-                    console.log('a');
+
                     function clickUtils(e) {
-                        console.log('a');
                         var event = e ? e : window.event,
                             target = e.target || e.srcElement,
                             flag = false;
