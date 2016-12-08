@@ -9,7 +9,7 @@
 
 var Matcha = {};
 
-(function(window) {
+(function (window) {
 
     var $doc;
 
@@ -25,7 +25,7 @@ var Matcha = {};
     }
 
     Matcha = {
-        fn: function(elements, selector, callback) {
+        fn: function (elements, selector, callback) {
 
             this.elements = elements;
             this.selector = selector;
@@ -36,7 +36,7 @@ var Matcha = {};
             return this;
         },
 
-        init: function() {
+        init: function () {
 
             var arg = [],
                 props;
@@ -56,30 +56,30 @@ var Matcha = {};
             }
 
             Matcha.fn.prototype = {
-                eq: function(num) {
+                eq: function (num) {
                     var object;
                     object = (new Matcha.fn(arg[0][num], arg[1]));
                     return object;
                 },
-                addClass: function(className) {
+                addClass: function (className) {
                     for (var i = 0; i < this.elements.length; i++) {
                         this.elements[i].classList.add(className);
                     }
                     return this;
                 },
-                removeClass: function(className) {
+                removeClass: function (className) {
                     for (var i = 0; i < this.elements.length; i++) {
                         this.elements[i].classList.remove(className);
                     }
                 },
-                attr: function(attr1, attr2) {
+                attr: function (attr1, attr2) {
                     var object = new Matcha.fn(arg[0][0], arg[1]).elements;
                     if (attr2) {
                         object.setAttribute(attr1, attr2);
                     }
                     return object.getAttribute(attr1);
                 },
-                css: function(object) {
+                css: function (object) {
 
                     if (object && typeof object == 'object') {
                         for (var i = 0; i < this.elements.length; i++) {
@@ -92,7 +92,7 @@ var Matcha = {};
                     }
                     return this;
                 },
-                click: function(callback) {
+                click: function (callback) {
                     var elements = this.elements;
 
                     function clickUtils(e) {
@@ -110,15 +110,14 @@ var Matcha = {};
                         }
                         if (flag) {
                             callback(event, target);
-                            Matcha.find('.side-nav').elements[0].innerHTML = Matcha.find('body').elements[0].className;
                         }
                     }
-                    $doc.addEventListener('touchstart', function(e) {
-                      clickUtils(e);
+                    $doc.addEventListener('touchstart', function (e) {
+                        clickUtils(e);
                     }, false);
 
-                    $doc.addEventListener('click', function(e) {
-                      clickUtils(e);
+                    $doc.addEventListener('click', function (e) {
+                        clickUtils(e);
                     }, false);
                 }
             };
@@ -128,17 +127,17 @@ var Matcha = {};
             return props;
         },
 
-        find: function(selector) {
+        find: function (selector) {
             return Matcha.init($doc.querySelectorAll(selector), selector);
         },
 
-        createMask: function() {
+        createMask: function () {
             var mask = document.createElement('div');
             mask.className = 'action-mask mask';
             $doc.body.appendChild(mask);
         },
 
-        stopEventBubbling: function(event) {
+        stopEventBubbling: function (event) {
             if (event) {
                 if (event.stopPropagation) {
                     event.stopPropagation();
@@ -148,20 +147,37 @@ var Matcha = {};
                 }
             }
         },
-        isFunction: function(func) {
+        isFunction: function (func) {
             return func ? ((typeof func === 'function') ? true : false) : false;
         },
-        initEvent: function(callback) {
-            $doc.addEventListener('DOMContentLoaded', function() {
+        initEvent: function (callback) {
+            $doc.addEventListener('DOMContentLoaded', function () {
                 if (Matcha.isFunction(callback)) {
                     callback();
                 }
             }, false);
+        },
+        isMobile: {
+            Android: function () {
+                return navigator.userAgent.match(/Android/i) ? true : false;
+            },
+            BlackBerry: function () {
+                return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+            },
+            iOS: function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+            },
+            Windows: function () {
+                return navigator.userAgent.match(/IEMobile/i) ? true : false;
+            },
+            any: function () {
+                return (Matcha.isMobile.Android() || Matcha.isMobile.BlackBerry() || Matcha.isMobile.iOS() || Matcha.isMobile.Windows());
+            }
         }
 
     };
 
-    Matcha.initEvent(function() {
+    Matcha.initEvent(function () {
         Matcha.createMask();
     });
 
