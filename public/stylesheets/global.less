@@ -21,10 +21,12 @@ body{
 }
 
 #actionBacktop,#actionDone,#actionPlus{
-    right: 5%;
-    box-shadow: @default-box-shadow;
     transform: scale(0);
     &.grow{
         transform: scale(1) @default;
     }
 } 
+#actionBacktop,#actionDone,#actionPlus{
+    box-shadow: @default-box-shadow;
+    margin-bottom: 8px;
+}

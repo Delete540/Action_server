@@ -10,19 +10,21 @@
       backtopBtn,
       actionBtn,
       plusBtn,
-      buttons = $doc.createElement('div'),
+
       backtop = $doc.createElement('button'),
       action = $doc.createElement('button'),
       plus = $doc.createElement('button'),
       backtopIcon = $doc.createElement('i'),
-      actionIcon = $doc.createElement('i');
-      plusIcon = $doc.createElement('i');
+      actionIcon = $doc.createElement('i'),
+      plusIcon = $doc.createElement('i'),
+
+      buttons = $doc.createElement('div');
 
     plus.className = 'action-plus btn-min circle square bc-dark-blue2';
     backtop.className = 'action-backtop btn-min circle square bc-dark-blue2';
-    action.className = 'action-create btn-min circle square bc-dark-pink1';
+    action.className = 'action-create-circle btn-min circle square bc-dark-pink1';
 
-    plus.id = 'actionPlus',
+    plus.id = 'actionPlus';
     backtop.id = 'actionBacktop';
     action.id = 'actionDone';
 
@@ -43,41 +45,57 @@
     actionBtn = $body.appendChild(action);
     actionBtn.appendChild(actionIcon);
 
-    buttonsCollection=$body.appendChild(buttons);
-    buttonsCollection.appendChild(plusBtn);
+    buttonsCollection = $body.appendChild(buttons);
+    buttonsCollection.setAttribute('style', 'width: 48px;position: fixed;right: 5%;bottom: 64px;');
+
     buttonsCollection.appendChild(backtopBtn);
     buttonsCollection.appendChild(actionBtn);
+    buttonsCollection.appendChild(plusBtn);
 
     return {
       backtopButton: backtopBtn,
       actionButton: actionBtn,
-      plusButton:plusBtn
+      plusButton: plusBtn
     };
 
   },
 
-    actionPlusButtonScorllEvent = function (e, scorllTop, buttons) {
-      var backtopBtn = buttons.backtopButton,
+    actionPlusButtonScorllEvent = function (scorllTop, buttons, e) {
+      var plusBtn = buttons.plusButton,
+        backtopBtn = buttons.backtopButton,
         actionBtn = buttons.actionButton,
         header = Matcha.find('#actionHeader');
+      plusBtn.onclick = function () {
+        if (backtopBtn.className.indexOf('grow') != -1 && actionBtn.className.indexOf('grow') != -1) {
+          backtopBtn.classList.remove('grow');
+          actionBtn.classList.remove('grow');
+        } else {
+          backtopBtn.classList.add('grow');
+          actionBtn.classList.add('grow');
+        }
+      };
 
       if (scorllTop > header.elements[0].offsetHeight) {
-        backtopBtn.classList.add('grow');
+        plusBtn.classList.add('grow');
       } else {
+        plusBtn.classList.remove('grow');
         backtopBtn.classList.remove('grow');
+        actionBtn.classList.remove('grow');
       }
       if (document.body.offsetWidth < 601) {
-          flag = true;
+        flag = true;
       }
 
-      actionBtnGrowEvent();
+      plusBtnGrowEvent();
+
+      
 
       window.addEventListener('resize', function (e) {
-         actionBtn.classList.add('grow');
+        plusBtn.classList.add('grow');
       });
 
 
-      function actionBtnGrowEvent() {
+      function plusBtnGrowEvent() {
         var flag = false;
 
         if (scorllTop > header.elements[0].offsetHeight + (Matcha.find('#actionCreate').elements[0].offsetHeight * 2) + Matcha.find('#actionCreate').elements[0].offsetTop * 2) {
@@ -93,17 +111,33 @@
 
 
         if (flag) {
-          actionBtn.classList.add('grow');
+          plusBtn.classList.add('grow');
         } else {
-          actionBtn.classList.remove('grow');
+          plusBtn.classList.remove('grow');
         }
       }
+    },
+    backtopButtonEvent = function (buttons) {
+      var backtopBtn = buttons.backtopButton;
+      
+      timer = null;
+      backtopBtn.onclick = function () {
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+      };
     };
 
   Matcha.initEvent(function () {
     var buttons = createActionCircleButton();
+
+    backtopButtonEvent(buttons);
+
+    actionPlusButtonScorllEvent(document.body.scrollTop, buttons);
+
     window.addEventListener('scroll', function (e) {
-      actionPlusButtonScorllEvent(e, document.body.scrollTop, buttons);
+
+      
+
+      actionPlusButtonScorllEvent(document.body.scrollTop, buttons, e);
     });
 
 
