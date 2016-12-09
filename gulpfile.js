@@ -39,7 +39,8 @@ gulp.task('build:components.js', function () {
         'public/javascripts/components/carousel.js',
         'public/javascripts/components/waves.js',
         'public/javascripts/components/sidenav.js',
-        'public/javascripts/components/cricleButton.js'
+        'public/javascripts/components/cricleButton.js',
+        'public/javascripts/components/headerNav.js'
         ])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
