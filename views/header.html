@@ -10,18 +10,21 @@
             <div class="container">
                 <h5 id="actionNavCenterTitle" class="title"></h5>
             </div>
-            <div class="col col-1 right-menu">
-                <button class="btn action-exit-app square circle bc-alpha-0 right s-down-hide"><i class="material-icons">exit_to_app</i></button>
+            <div id="actionHeaderNavMenu" class="col col-1 right-menu">
+                <!--<button class="btn action-exit-app square circle bc-alpha-0 right s-down-hide"><i class="material-icons">exit_to_app</i></button>
                 <button class="btn action-notifications square circle bc-alpha-0 right s-down-hide"><i class="material-icons">place</i></button>
                 <button class="btn action-more-vert square circle bc-alpha-0 right s-down-show"><i class="material-icons">more_vert</i></button>
-                <button class="btn action-search square circle bc-alpha-0 right"><i class="material-icons">search</i></button>
+                <button class="btn action-search square circle bc-alpha-0 right"><i class="material-icons">search</i></button>-->
             </div>
         </div>
     </nav>
     <!--end-->
     <div class="row">
         <div class="container">
-            <h1 class="action-logo-title">Action</h1>
+            <h1 class="action-logo-title"><%=title%></h1>
+            <% if (user) { %>
+                <h1 class="action-logo-title"><%=user%></h1>
+            <% } %>
         </div>
     </div>
 

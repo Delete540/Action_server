@@ -174,7 +174,6 @@ var Matcha = {};
                 return (Matcha.isMobile.Android() || Matcha.isMobile.BlackBerry() || Matcha.isMobile.iOS() || Matcha.isMobile.Windows());
             }
         }
-
     };
 
     Matcha.initEvent(function () {

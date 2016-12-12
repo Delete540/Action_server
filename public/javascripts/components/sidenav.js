@@ -1,18 +1,7 @@
 //
 
 (function (window) {
-    var actionLeftSideNavInit = function () {
-        var header = Matcha.find('#actionHeader');
-
-        Matcha.find('.action-left-side .top').css({
-            'height':header.elements[0].offsetHeight + 'px'
-        });
-        Matcha.find('.action-left-side div.top img.background').css({
-            'height':header.elements[0].offsetHeight + 'px'
-        });
-    },
-
-        actionLeftSideNavEvent = function () {
+    var actionLeftSideNavEvent = function () {
 
             var hamburg = Matcha.find('#actionHeaderNav .action-hamburg'),
                 targetSidenav = Matcha.find('div.action-left-side'),
@@ -36,7 +25,7 @@
             });
         };
     Matcha.initEvent(function () {
-        actionLeftSideNavInit();
+        //actionLeftSideNavInit();
         actionLeftSideNavEvent();
     });
 

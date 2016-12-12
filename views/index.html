@@ -10,34 +10,14 @@
 
 <body app-name="Action">
   <% include header.html %>
-    <div class="action-left-side side-nav left hide">
-      <div class="top">
-        <img class="background" src="/img/office.jpg" alt="">
-        <div class="photo"><img src="/img/backup/60.jpeg" alt=""/></div>
-        <div class="user-info">
-          <ul class="list">
-            <li><h6>Test User</h6></li>
-            <li><span>test-user@test.com</span></li>
-            <li><span>description</span></li>
-          </ul>
-        </div>
-      </div>
-      <div id="actionLeftSideContent" class="content">
-        <ul class="list menu">
-          <li><a href="" class="btn-min"><i class="material-icons left">people</i>我的朋友</a></li>
-          <li><a href="" class="btn-min"><i class="material-icons left">flag</i>我的Action</a></li>
-          <li><a href="" class="btn-min"><i class="material-icons left">place</i>附近</a></li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <a href="" class="btn-min"><i class="material-icons left">settings</i>设置</a>
-      </div>
+    <div id="actionLeftSide" class="action-left-side side-nav left hide">
+      
     </div>
     <div id="actionContent" class="action-content flex-grid">
       <div class="container">
         <div class="row">
-          <div class="col col-8" data-action="forEach">
-            <div class="card" data-photo="/img/backup/60.jpeg" data-action-title="Card Title1">
+          <div id="actionContentCards" class="col col-8" data-action="forEach">
+            <!--<div class="card" data-photo="/img/backup/60.jpeg" data-action-title="Card Title1">
               <div class="card-img">
                 <img class="background" src="/img/backup/two.jpg" />
                 <span class="text">Test user <br/> test-user@email.com</span>
@@ -145,11 +125,10 @@
                 <li></li>
               </ul>
               <div class="card-action"><a class=""><i class="material-icons left">flag</i><h6>加入我们</h6></a></div>
-            </div>
+            </div>-->
           </div>
-          <div class="col col-4 s-down-hide">
-            <button id="actionCreate" class="action-create btn bc-dark-blue2 fc-white"><i class="material-icons left fc-white">create</i>创建新Action</button>
-            <button id="actionWrite" class="action-write btn bc-dark-yellow2 fc-white"><i class="material-icons left fc-white">pets</i>写日志</button>
+          <div id="actionContentRight" class="col col-4 s-down-hide">
+            
           </div>
         </div>
       </div>

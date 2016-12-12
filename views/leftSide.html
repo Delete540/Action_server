@@ -1,0 +1,28 @@
+<div class="top"><% if(user) {%>
+  <img class="background" src="/img/office.jpg" alt="">
+  <div class="photo"><img src="/img/backup/60.jpeg" alt="" /></div><% } else {%>
+  <img class="background" src="/img/office.jpg" alt=""><% } %>
+  <div class="user-info">
+    <ul class="list"><% if(user) {%>
+      <li>
+        <h6>Test User</h6>
+      </li>
+      <li><span>test-user@test.com</span></li>
+      <li><span>description</span></li><% } else { %>
+      <li>
+        <h6>Welcome</h6> 
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>
+<div id="actionLeftSideContent" class="content">
+  <ul class="list menu"><% if(user) { %>  
+    <li><a href="" class="btn-min"><i class="material-icons left">people</i>我的朋友</a></li>
+    <li><a href="" class="btn-min"><i class="material-icons left">flag</i>我的Action</a></li><% } %> 
+    <li><a href="" class="btn-min"><i class="material-icons left">place</i>附近</a></li>
+  </ul>
+</div>
+<div class="bottom">
+  <a href="" class="btn-min"><i class="material-icons left">settings</i>设置</a>
+</div>
