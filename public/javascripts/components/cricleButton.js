@@ -97,8 +97,8 @@
 
       function plusBtnGrowEvent() {
         var flag = false;
-
-        if (scorllTop > header.elements[0].offsetHeight + (Matcha.find('#actionCreate').elements[0].offsetHeight * 2) + Matcha.find('#actionCreate').elements[0].offsetTop * 2) {
+ 
+        if (scorllTop > header.elements[0].offsetHeight) {
           flag = true;
         } else {
           if (document.body.offsetWidth < 601) {
