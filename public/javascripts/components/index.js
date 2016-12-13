@@ -174,36 +174,8 @@ var Matcha = {};
             any: function () {
                 return (Matcha.isMobile.Android() || Matcha.isMobile.BlackBerry() || Matcha.isMobile.iOS() || Matcha.isMobile.Windows());
             }
-        },
-        creatPreloader: function (options, callback) {
-            var preloaderWrapper = document.createElement('div'),
-                spinnerLayer = document.createElement('div'),
-                circleClipper = document.createElement('div'),
-                circle = document.createElement('div');
-
-            preloaderWrapper.classList.add('preloader-wrapper');
-            if (options.active && (options.active === true || options.active === false)) {
-                preloaderWrapper.classList.add('active');
-            }
-
-            spinnerLayer.classList.add('spinner-layer');
-
-            preloaderWrapper.appendChild(spinnerLayer);
-
-            circleClipper.classList.add('circle-clipper');
-            if (options.active && (options.action == 'left' || options.active == 'false')) {
-                circleClipper.classList.add(options.action);
-            }
-
-            spinnerLayer.appendChild(circleClipper);
-
-            circle.classList.add('circle');
-
-            spinnerLayer.appendChild(circle);
-
-
-            return preloaderWrapper;
         }
+        
     };
 
     Matcha.initEvent(function () {
