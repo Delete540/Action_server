@@ -12,11 +12,22 @@
   z-index: @zIndex-bottom;
   transition: background-color .3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
   overflow: hidden;
+  padding: @base-size;
   &.show{
     z-index: @zIndex-3;
     background-color: @white-light;
     touch-action: pan-y;
     -webkit-user-drag: none;
     user-drag: none;
+  }
+  button.close{
+    background-color: @alpha-0;
+    &:hover{
+      background-color: @white-light @default;
+    }
+    i{ 
+      color: @dark-default;
+      font-size: 1.5rem;
+    }
   }
 } 

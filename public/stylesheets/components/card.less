@@ -6,6 +6,7 @@ div.card{
   position: relative;
   display: block;
   margin: 0 0 @base-size 0;
+  overflow: hidden;
   div{
     &.card-img,&.card-title,&.card-content,&.card-action{
       position: relative;
@@ -54,6 +55,27 @@ div.card{
       }
       &.hot{
         background-color: @pink-default
+      }
+    }
+    &.card-more-vert{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 100%;
+      padding: @base-size * 2;
+      background-color: @white-default;
+      &.active{
+        top:0;
+      }
+      button.close{
+        i{
+          color: @dark-default;
+        }
+      }
+      .content{
+        width: @full;
+        display: block;
       }
     }
   }

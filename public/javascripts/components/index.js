@@ -134,6 +134,7 @@ var Matcha = {};
         createMask: function () {
             var mask = document.createElement('div');
             mask.className = 'action-mask mask';
+            mask.id = 'actionMask';
             $doc.body.appendChild(mask);
         },
 
