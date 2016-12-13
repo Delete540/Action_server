@@ -31,7 +31,9 @@ action.initContentRight = function (data) {
 action.initHeaderNavSearchBtn = function () {
   $('#actionHeaderNav .action-search').click(function () {
     $('#actionMask').addClass('show');
-    $('#actionMask').append('<button class="close btn square circle  left"><i class="material-icons">close</i></button>');
+    $('#actionMask').append('<button class="close btn-min square circle  left"><i class="material-icons">close</i></button>');
+    $('#actionMask').append('<div id="actionSearchResult" class="content action-search-result left row"><div class="container"></div></div>');
+    $('#actionSearchResult .container').append('<div class="action-search-input-container input-container"><input id="action-search-input" type="text" class="action-search-input input" /><button class="btn-min bc-alpha-0 square circle right"><i class="material-icons">search</i></button></div>');
     $('#actionHeaderNav .action-hamburg').css({
       transform: 'scale(0)'
     });
@@ -41,6 +43,7 @@ action.initHeaderNavSearchBtn = function () {
   $('#actionMask').on('click', '.close', function () {
     $('#actionMask').removeClass('show');
     $(this).remove();
+    $('#actionSearchResult').remove();
     $('#actionHeaderNav .action-hamburg').css({
       transform: 'scale(1)'
     });

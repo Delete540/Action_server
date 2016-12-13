@@ -15,19 +15,20 @@
   padding: @base-size;
   &.show{
     z-index: @zIndex-3;
-    background-color: @white-light;
+    background-color: rgba(255,255,255,.94);
     touch-action: pan-y;
     -webkit-user-drag: none;
     user-drag: none;
   }
   button.close{
     background-color: @alpha-0;
+    margin-left: -4px;
     &:hover{
-      background-color: @white-light @default;
+      background-color: @white-light  @default;
     }
     i{ 
       color: @dark-default;
-      font-size: 1.5rem;
+      font-size: 1.5rem; 
     }
   }
 } 
